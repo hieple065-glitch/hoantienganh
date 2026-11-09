@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ôn Tập Giữa Học Kỳ 1 - Tiếng Anh 12 Global Success | THPT Nguyễn Bỉnh Khiêm</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #2563eb;
+      --accent: #0ea5e9;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      padding-bottom: 60px;
+    }
+    /* HEADER */
+    .school-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 60%, #0284c7 100%);
+      color: #fff;
+      padding: 22px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      border-bottom: 4px solid #38bdf8;
+    }
+    .school-header h1 { font-size: 1.45rem; text-transform: uppercase; letter-spacing: 0.8px; }
+    .school-header h2 { font-size: 1.1rem; font-weight: 500; color: #bae6fd; margin-top: 4px; }
+    .school-header .meta-badge {
+      display: inline-block;
+      margin-top: 8px;
+      background: rgba(255,255,255,0.15);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+    }
+    .container { max-width: 1120px; margin: 24px auto; padding: 0 16px; }
+
+    /* LOGIN SCREEN */
+    .login-card {
+      max-width: 580px;
+      margin: 35px auto;
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+      border-top: 6px solid var(--primary-light);
+    }
+    .login-card h3 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+    .login-card p.desc {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--primary);
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--primary-light);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+    .error-msg {
+      display: none;
+      background: var(--danger-bg);
+      color: var(--danger);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--danger);
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #1d4ed8, #0284c7);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
+    }
+
+    /* STICKY STUDENT BAR */
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      background: #ffffff;
+      border-bottom: 2px solid var(--border);
+      padding: 12px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      display: none;
+    }
+    .sticky-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .student-pills { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .pill {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .timer-box {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .bar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn-sm {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn-shuffle { background: #e0f2fe; color: #0369a1; border: 1px solid #7dd3fc; }
+    .btn-shuffle:hover { background: #bae6fd; }
+    .btn-submit-top { background: var(--success); color: #fff; }
+    .btn-submit-top:hover { background: #15803d; }
+
+    /* DISTINCT SCOREBOARD */
+    #scoreboardSection { display: none; margin-bottom: 28px; }
+    .score-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.22);
+      border: 2px solid #38bdf8;
+      margin-bottom: 20px;
+    }
+    .score-hero-top {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    @media (max-width: 820px) {
+      .score-hero-top { grid-template-columns: 1fr; text-align: center; }
+    }
+    .candidate-card {
+      background: rgba(255,255,255,0.07);
+      padding: 16px 20px;
+      border-radius: 12px;
+      border-left: 4px solid #38bdf8;
+    }
+    .candidate-card h3 { color: #38bdf8; font-size: 1.2rem; margin-bottom: 6px; }
+    .candidate-card p { font-size: 0.92rem; color: #e2e8f0; margin: 3px 0; }
+    .big-score-circle {
+      text-align: center;
+      background: radial-gradient(circle, rgba(14,165,233,0.25) 0%, rgba(15,23,42,0.8) 80%);
+      border: 3px solid #38bdf8;
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .big-score-circle .score-num {
+      font-size: 2.9rem;
+      font-weight: 800;
+      color: #38bdf8;
+      line-height: 1.1;
+    }
+    .big-score-circle .score-label {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+    .rank-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      background: #f59e0b;
+      color: #0f172a;
+    }
+    .stats-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .kpi-box {
+      background: rgba(255,255,255,0.08);
+      padding: 12px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .kpi-box .val { font-size: 1.35rem; font-weight: 700; }
+    .kpi-box .lbl { font-size: 0.8rem; color: #cbd5e1; }
+    .kpi-correct .val { color: #4ade80; }
+    .kpi-wrong .val { color: #f87171; }
+    .kpi-unans .val { color: #fbbf24; }
+    .kpi-acc .val { color: #38bdf8; }
+
+    /* SKILL BREAKDOWN & QUESTION MATRIX */
+    .dashboard-subgrid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 860px) { .dashboard-subgrid { grid-template-columns: 1fr; } }
+    .dash-panel {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      border: 1px solid var(--border);
+    }
+    .dash-panel h4 {
+      color: var(--primary);
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+    .skill-row { margin-bottom: 12px; }
+    .skill-row-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .progress-track {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #2563eb, #06b6d4);
+      border-radius: 999px;
+    }
+    .q-matrix {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 8px;
+    }
+    .q-cell {
+      padding: 8px 4px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: 0.15s;
+    }
+    .q-cell:hover { transform: scale(1.06); }
+    .q-cell.correct { background: var(--success-bg); color: var(--success); border-color: #86efac; }
+    .q-cell.wrong { background: var(--danger-bg); color: var(--danger); border-color: #fca5a5; }
+    .q-cell.skipped { background: var(--warning-bg); color: var(--warning); border-color: #fde68a; }
+
+    /* HISTORY TABLE */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.88rem;
+    }
+    .history-table th, .history-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+    }
+    .history-table th { background: #f8fafc; color: var(--primary); }
+
+    /* EXAM SECTIONS & PASSAGES */
+    .section-block {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+    .section-header {
+      background: #eff6ff;
+      border-left: 5px solid var(--primary-light);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .source-tag {
+      background: #1e3a8a;
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .passage-box {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+      color: #1e293b;
+    }
+    .passage-box h4 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .passage-box p { margin-bottom: 10px; text-align: justify; }
+    .underlined-txt { text-decoration: underline; font-weight: 700; color: #0f172a; }
+
+    /* QUESTION ITEM */
+    .question-card {
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      background: #fff;
+      transition: 0.2s;
+    }
+    .question-card.answered { border-color: #93c5fd; background: #fcfdff; }
+    .question-card.res-correct { border: 2px solid var(--success); background: #f0fdf4; }
+    .question-card.res-wrong { border: 2px solid var(--danger); background: #fef2f2; }
+    .q-stem { font-weight: 700; color: #0f172a; margin-bottom: 12px; font-size: 1rem; }
+    .q-stem .lines-box {
+      font-weight: 500;
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 3px solid #64748b;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 680px) { .options-grid { grid-template-columns: 1fr; } }
+    .opt-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.15s;
+      background: #fff;
+      font-size: 0.95rem;
+    }
+    .opt-label:hover { border-color: var(--primary-light); background: #eff6ff; }
+    .opt-label input { margin-top: 4px; transform: scale(1.15); cursor: pointer; }
+    .opt-label.opt-correct-ans {
+      background: var(--success-bg) !important;
+      border-color: var(--success) !important;
+      font-weight: 700;
+      color: #14532d;
+    }
+    .opt-label.opt-user-wrong {
+      background: var(--danger-bg) !important;
+      border-color: var(--danger) !important;
+      text-decoration: line-through;
+      color: #7f1d1d;
+    }
+
+    /* DETAILED EXPLANATION BOX */
+    .exp-box {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      border-radius: 10px;
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.03);
+      font-size: 0.93rem;
+    }
+    .exp-header {
+      font-weight: 700;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px dashed #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .exp-meaning {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .exp-colloc {
+      background: #fefce8;
+      border-left: 4px solid #eab308;
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .exp-opts-list { list-style: none; display: grid; gap: 6px; }
+    .exp-opt-item {
+      padding: 7px 11px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    .exp-opt-item.is-right {
+      background: #dcfce7;
+      border-left: 4px solid #16a34a;
+      color: #14532d;
+      font-weight: 600;
+    }
+    .exp-opt-item.is-wrong {
+      background: #fff1f2;
+      border-left: 4px solid #e11d48;
+      color: #881337;
+    }
+    .bottom-submit-wrap { text-align: center; margin-top: 28px; }
+    .btn-submit-big {
+      padding: 16px 42px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #16a34a, #059669);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+    }
+    .btn-submit-big:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <header class="school-header">
+    <h1>TRƯỜNG THPT NGUYỄN BỈNH KHIÊM - TỔ TIẾNG ANH</h1>
+    <h2>ĐỀ CƯƠNG ÔN TẬP GIỮA HỌC KÌ 1 – TIẾNG ANH 12 GLOBAL SUCCESS</h2>
+    <div class="meta-badge">Năm học: 2026 - 2027 | Unit 1, Unit 2 & Unit 3 (40 Câu / Đề - Đánh Tráo 2 Bài Test)</div>
+  </header>
+
+  <!-- STICKY BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-inner">
+      <div class="student-pills">
+        <span class="pill" id="barName">👤 Học sinh: ---</span>
+        <span class="pill" id="barSBD">🆔 SBD: ---</span>
+        <span class="pill" id="barClass">🏫 Lớp: ---</span>
+        <span class="pill" id="barProgress">📝 Đã làm: 0/40</span>
+      </div>
+      <div class="bar-actions">
+        <div class="timer-box" id="timerDisplay">00:00</div>
+        <button class="btn-sm btn-shuffle" onclick="generateNewExam('mix')">🔄 Đổi Đề Trộn Mới</button>
+        <button class="btn-sm btn-submit-top" id="topSubmitBtn" onclick="submitExam()">✅ Nộp Bài & Chấm Điểm</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- MÀN HÌNH ĐĂNG NHẬP HỌ TÊN & SỐ BÁO DANH -->
+    <div class="login-card" id="loginSection">
+      <h3>📝 CỔNG ĐĂNG NHẬP LÀM BÀI THI</h3>
+      <p class="desc">Học sinh vui lòng nhập đúng <strong>Họ và Tên</strong> và <strong>Số Báo Danh (SBD)</strong> trước khi vào làm bài.</p>
+      <div class="error-msg" id="loginError"></div>
+
+      <div class="form-group">
+        <label for="stuName">Họ và Tên học sinh (*):</label>
+        <input type="text" id="stuName" placeholder="Ví dụ: Phan Nguyễn Đức Hoàn" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="stuSBD">Số Báo Danh - SBD (*):</label>
+        <input type="text" id="stuSBD" placeholder="Ví dụ: 12A12-15 hoặc SBD015" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label for="stuClass">Lớp:</label>
+        <input type="text" id="stuClass" value="12A12" placeholder="Ví dụ: 12A12">
+      </div>
+      <div class="form-group">
+        <label for="examMode">Chế độ tạo đề (40 câu/đề - Giữ nguyên vẹn đoạn văn):</label>
+        <select id="examMode">
+          <option value="mix">🔀 Đánh tráo ngẫu nhiên giữa Practice Test 1 & Practice Test 2 (Khuyên dùng)</option>
+          <option value="test1">📘 Làm nguyên bản Practice Test 1 (40 câu)</option>
+          <option value="test2">📗 Làm nguyên bản Practice Test 2 (40 câu)</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="startExamSession()">🚀 BẮT ĐẦU LÀM BÀI (40 CÂU)</button>
+    </div>
+
+    <!-- BẢNG ĐIỂM KHÁC BIỆT (HIỂN THỊ SAU KHI NỘP BÀI) -->
+    <div id="scoreboardSection">
+      <div class="score-hero">
+        <div class="score-hero-top">
+          <div class="candidate-card">
+            <h3 id="resName">Học sinh: ---</h3>
+            <p id="resSBD"><strong>Số báo danh:</strong> ---</p>
+            <p id="resClass"><strong>Lớp:</strong> ---</p>
+            <p id="resMode"><strong>Mã đề:</strong> ---</p>
+            <p id="resTime"><strong>Thời gian hoàn thành:</strong> ---</p>
+          </div>
+          <div class="big-score-circle">
+            <div class="score-num" id="resScore10">0.00</div>
+            <div class="score-label">THANG ĐIỂM 10</div>
+            <div class="rank-badge" id="resRankBadge">---</div>
+          </div>
+          <div class="stats-kpi-grid">
+            <div class="kpi-box kpi-correct"><div class="val" id="resCorrect">0/40</div><div class="lbl">Câu trả lời Đúng</div></div>
+            <div class="kpi-box kpi-wrong"><div class="val" id="resWrong">0</div><div class="lbl">Câu trả lời Sai</div></div>
+            <div class="kpi-box kpi-unans"><div class="val" id="resSkipped">0</div><div class="lbl">Câu chưa chọn</div></div>
+            <div class="kpi-box kpi-acc"><div class="val" id="resPercent">0%</div><div class="lbl">Tỷ lệ chính xác</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-subgrid">
+        <div class="dash-panel">
+          <h4>📊 Phân Tích Điểm Theo Từng Kỹ Năng Trong Đề</h4>
+          <div id="skillBreakdownBox"></div>
+          <h4 style="margin-top:18px;">🏆 Bảng Lưu Lịch Sử Điểm Theo Số Báo Danh</h4>
+          <table class="history-table">
+            <thead>
+              <tr><th>SBD</th><th>Họ và Tên</th><th>Lớp</th><th>Điểm</th><th>Đúng</th><th>Thời gian</th></tr>
+            </thead>
+            <tbody id="historyTableBody"></tbody>
+          </table>
+        </div>
+        <div class="dash-panel">
+          <h4>🎯 Ma Trận 40 Câu Hỏi (Bấm vào số câu để xem giải thích)</h4>
+          <div class="q-matrix" id="questionMatrixBox"></div>
+          <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-sm btn-shuffle" onclick="generateNewExam('mix')">🔄 Làm Đề Trộn Mới</button>
+            <button class="btn-sm" style="background:#f1f5f9; border:1px solid #cbd5e1;" onclick="generateNewExam('test1')">📘 Đề Gốc Test 1</button>
+            <button class="btn-sm" style="background:#f1f5f9; border:1px solid #cbd5e1;" onclick="generateNewExam('test2')">📗 Đề Gốc Test 2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KHU VỰC HIỂN THỊ BÀI THI 40 CÂU -->
+    <div id="examContentSection" style="display:none;">
+      <div id="examBlocksContainer"></div>
+      <div class="bottom-submit-wrap" id="bottomSubmitWrap">
+        <button class="btn-submit-big" onclick="submitExam()">🎯 NỘP BÀI & XEM BẢNG ĐIỂM + GIẢI CHI TIẾT</button>
+      </div>
+    </div>
+  </div>
+  <script>
+// ============================================================================
+// NGÂN HÀNG DỮ LIỆU 80 CÂU HỎI NGUYÊN BẢN (TEST 1: 40 CÂU & TEST 2: 40 CÂU)
+// Giữ nguyên 100% đáp án gốc, đoạn văn và câu hỏi. Giải thích chi tiết Nghĩa,
+// Cụm Collocation/Phrasal Verb, câu Đúng và lý do vì sao từng câu còn lại Sai.
+// ============================================================================
+const BANK = {
+  // KHỐI I (Câu 1 - 6): ADVERTISEMENT / ANNOUNCEMENT
+  part1: {
+    test1: {
+      source: "Practice Test 1 (Q1 - Q6)",
+      skillName: "Phần I: Quảng cáo / Thông báo (6 câu)",
+      instruction: "I. Read the following advertisement and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>DISCOVER OUR LUXURIOUS ECO-FRIENDLY YOGA MATS!<br><small style="font-size:0.85rem;color:#475569;">Your Perfect Yoga Experience Starts Here!</small></h4>
+          <p>Are you looking for a <strong>(1) __________</strong> yoga mat?</p>
+          <p>Our mats are made from natural materials that are not only sustainable but also incredibly durable. <strong>COMFORT MEETS QUALITY</strong></p>
+          <p>Experience the comfort of our thick blue <strong>(2) __________</strong>. It provides the perfect surface for all your yoga needs, whether you’re a beginner or an expert.</p>
+          <p><strong>JOIN OUR HAPPY YOGA COMMUNITY!</strong><br>Many customers have shared how our mats have transformed their practice, <strong>(3) __________</strong> help them to achieve greater balance and flexibility. Join our community and see the difference! You can show yoga <strong>(4) __________</strong> your friends with our mats every day.</p>
+          <p><strong>✨ DON'T MISS OUT!</strong><br><strong>(5) __________</strong> advantage of this opportunity to enhance your yoga experience!</p>
+          <p><strong>LOVE YOGA. LIVE HEALTHY</strong><br><strong>(6) __________</strong> yoga is essential for maintaining a healthy lifestyle, and our mats will help you achieve that.<br><em>Roll Out Your Mat. Reconnect With Yourself</em></p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 1:", o: { A: "perfection", B: "perfectly", C: "perfect", D: "perfective" }, a: "C",
+          m: "Bạn đang tìm kiếm một chiếc thảm tập yoga hoàn hảo phải không?",
+          c: "look for (tìm kiếm) | a perfect yoga mat (một chiếc thảm tập yoga hoàn hảo).",
+          e: {
+            A: "SAI vì 'perfection' là danh từ (sự hoàn hảo), không đứng trước cụm danh từ 'yoga mat' để chỉ tính chất.",
+            B: "SAI vì 'perfectly' là trạng từ, không bổ nghĩa trực tiếp cho danh từ 'yoga mat'.",
+            C: "ĐÚNG vì 'perfect' là tính từ (hoàn hảo), đứng sau mạo từ 'a' và trước cụm danh từ 'yoga mat' để bổ nghĩa.",
+            D: "SAI vì 'perfective' là thuật ngữ ngữ pháp (thể hoàn thành), không phù hợp nghĩa."
+          }
+        },
+        {
+          q: "Question 2:", o: { A: "yoga mat eco-friendly", B: "eco-friendly yoga mat", C: "mat yoga eco-friendly", D: "yoga eco-friendly mat" }, a: "B",
+          m: "Hãy trải nghiệm sự êm ái của chiếc thảm tập yoga thân thiện với môi trường màu xanh dày dặn của chúng tôi.",
+          c: "eco-friendly yoga mat (thảm tập yoga thân thiện với môi trường) | Trật tự cụm danh từ: Tính từ (eco-friendly) + Danh từ phụ (yoga) + Danh từ chính (mat).",
+          e: {
+            A: "SAI trật tự từ vì tính từ 'eco-friendly' bị đặt sau cụm danh từ 'yoga mat'.",
+            B: "ĐÚNG trật tự cụm danh từ: tính từ ghép 'eco-friendly' đứng trước cụm danh từ 'yoga mat'.",
+            C: "SAI vì danh từ chính 'mat' phải đứng cuối cụm và tính từ phải đứng đầu.",
+            D: "SAI vì tính từ 'eco-friendly' không được chen vào giữa cụm danh từ ghép cố định 'yoga mat'."
+          }
+        },
+        {
+          q: "Question 3:", o: { A: "which", B: "who", C: "that", D: "whose" }, a: "A",
+          m: "Nhiều khách hàng đã chia sẻ cách những chiếc thảm của chúng tôi thay đổi việc luyện tập của họ, những chiếc thảm mà giúp họ đạt được sự cân bằng và dẻo dai tốt hơn.",
+          c: "achieve greater balance and flexibility (đạt được sự cân bằng và dẻo dai tốt hơn).",
+          e: {
+            A: "ĐÚNG vì 'which' là đại từ quan hệ thay thế cho danh từ chỉ vật ('our mats') và dùng được sau dấu phẩy (,).",
+            B: "SAI vì 'who' chỉ dùng thay thế cho danh từ chỉ người.",
+            C: "SAI vì đại từ quan hệ 'that' tuyệt đối không được dùng sau dấu phẩy (,).",
+            D: "SAI vì 'whose' là đại từ quan hệ chỉ sở hữu, theo sau 'whose' phải là một danh từ chứ không phải động từ 'help'."
+          }
+        },
+        {
+          q: "Question 4:", o: { A: "to", B: "about", C: "for", D: "with" }, a: "A",
+          m: "Bạn có thể giới thiệu/trình diễn yoga cho bạn bè của mình với những chiếc thảm của chúng tôi mỗi ngày.",
+          c: "show something to somebody (cho ai xem / giới thiệu cái gì cho ai).",
+          e: {
+            A: "ĐÚNG theo cấu trúc động từ đi với giới từ: 'show something to somebody' (giới thiệu/thể hiện cái gì cho ai).",
+            B: "SAI vì 'show' không đi với giới từ 'about' trong cấu trúc này.",
+            C: "SAI vì không dùng 'show something for somebody'.",
+            D: "SAI vì giới từ chỉ người nhận hành động 'show something' phải là 'to'."
+          }
+        },
+        {
+          q: "Question 5:", o: { A: "Take", B: "Bring", C: "Do", D: "Make" }, a: "A",
+          m: "Hãy tận dụng cơ hội này để nâng cao trải nghiệm tập yoga của bạn!",
+          c: "take advantage of something (tận dụng cơ hội/lợi thế của cái gì) = make use of something.",
+          e: {
+            A: "ĐÚNG vì 'take advantage of' là cụm collocation cố định mang nghĩa 'tận dụng'.",
+            B: "SAI vì 'bring' không kết hợp với 'advantage of'.",
+            C: "SAI vì 'do' không đi với 'advantage of'.",
+            D: "SAI vì với 'make' ta dùng 'make use of', còn với 'advantage' bắt buộc dùng 'take'."
+          }
+        },
+        {
+          q: "Question 6:", o: { A: "Practice", B: "To practice", C: "Practicing", D: "To practicing" }, a: "C",
+          m: "Việc tập luyện yoga là rất cần thiết để duy trì một lối sống lành mạnh, và thảm của chúng tôi sẽ giúp bạn đạt được điều đó.",
+          c: "be essential for doing something (cần thiết cho việc làm gì) | maintain a healthy lifestyle (duy trì lối sống lành mạnh).",
+          e: {
+            A: "SAI vì động từ nguyên mẫu 'Practice' đứng đầu câu tạo thành câu mệnh lệnh, không làm chủ ngữ cho 'is essential'.",
+            B: "SAI vì danh động từ (V-ing) được dùng làm chủ ngữ chỉ một hoạt động tổng quát tự nhiên và chuẩn xác hơn 'To V'.",
+            C: "ĐÚNG vì danh động từ (Gerund) 'Practicing' đóng vai trò làm chủ ngữ của câu, đi với động từ số ít 'is'.",
+            D: "SAI ngữ pháp vì 'To + V-ing' không thể đứng đầu câu làm chủ ngữ."
+          }
+        }
+      ]
+    },
+    test2: {
+      source: "Practice Test 2 (Q1 - Q6)",
+      skillName: "Phần I: Quảng cáo / Thông báo (6 câu)",
+      instruction: "I. Read the following announcement and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 1 to 6.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>🎉 ANNOUNCEMENT OF THE INTERNATIONAL CULTURAL FESTIVAL</h4>
+          <p>The <strong>(1) ______</strong> is pleased to announce our International Cultural Festival, which will take place at our school on November 15.</p>
+          <p>The event aims <strong>(2) ______</strong> students to explore cultural diversity through traditional food, music, and dance. Visitors can <strong>(3) ______</strong> friends with students from different countries and learn about their customs.</p>
+          <p>The festival also offers a chance to gain a better understanding <strong>(4) ______</strong> different cultures. Students are encouraged to take part in the activities and share their own traditions.</p>
+          <p>We hope this exciting event will be an enjoyable and <strong>(5) ______</strong> experience for everyone. Please contact the organizing committee, <strong>(6) ______</strong> is responsible for providing further information, if you have any questions.</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 1:", o: { A: "Union Youth School", B: "Youth School Union", C: "School Youth Union", D: "Youth Union School" }, a: "C",
+          m: "Đoàn Thanh niên Nhà trường hân hạnh thông báo về Lễ hội Văn hóa Quốc tế của chúng ta...",
+          c: "School Youth Union (Đoàn Thanh niên Trường học) | take place (diễn ra).",
+          e: {
+            A: "SAI trật tự cụm danh từ trong tiếng Anh.",
+            B: "SAI vì 'Youth Union' (Đoàn Thanh niên) là cụm cố định, không chèn 'School' vào giữa.",
+            C: "ĐÚNG trật tự cụm danh từ ghép: 'School' (trường học) + 'Youth Union' (Đoàn Thanh niên) = Đoàn Thanh niên Trường học.",
+            D: "SAI vì danh từ chính là 'Union' (Tổ chức Đoàn) phải đứng cuối cụm."
+          }
+        },
+        {
+          q: "Question 2:", o: { A: "encourage", B: "encouraging", C: "to encourage", D: "encouraged" }, a: "C",
+          m: "Sự kiện này hướng tới mục tiêu khuyến khích học sinh khám phá sự đa dạng văn hóa qua ẩm thực, âm nhạc và điệu múa truyền thống.",
+          c: "aim to do something (nhằm mục đích làm gì) | encourage somebody to do something (khuyến khích ai làm gì).",
+          e: {
+            A: "SAI vì sau động từ 'aim' không cộng trực tiếp với động từ nguyên mẫu không 'to'.",
+            B: "SAI vì 'aim' chỉ đi với 'V-ing' khi có giới từ 'at' (aim at doing something).",
+            C: "ĐÚNG theo cấu trúc ngữ pháp: 'aim + to V' (nhằm mục đích làm gì).",
+            D: "SAI vì không dùng quá khứ phân từ (V-ed) sau 'aims'."
+          }
+        },
+        {
+          q: "Question 3:", o: { A: "do", B: "take", C: "make", D: "have" }, a: "C",
+          m: "Khách tham quan có thể kết bạn với các học sinh đến từ nhiều quốc gia khác nhau và tìm hiểu về phong tục của họ.",
+          c: "make friends with somebody (kết bạn với ai).",
+          e: {
+            A: "SAI vì 'do' không kết hợp với 'friends'.",
+            B: "SAI vì 'take' không đi với 'friends'.",
+            C: "ĐÚNG vì 'make friends with somebody' là cụm collocation cố định mang nghĩa 'kết bạn với ai'.",
+            D: "SAI vì khi mang nghĩa chủ động làm quen kết bạn mới với giới từ 'with', ta luôn dùng 'make friends with'."
+          }
+        },
+        {
+          q: "Question 4:", o: { A: "at", B: "of", C: "for", D: "with" }, a: "B",
+          m: "Lễ hội cũng mang lại cơ hội để có được sự hiểu biết sâu sắc hơn về các nền văn hóa khác nhau.",
+          c: "gain a better understanding of something (có được sự hiểu biết tốt hơn về cái gì) | take part in (tham gia vào).",
+          e: {
+            A: "SAI vì danh từ 'understanding' không đi với giới từ 'at'.",
+            B: "ĐÚNG vì cụm cố định 'an understanding of something' mang nghĩa 'sự hiểu biết về điều gì'.",
+            C: "SAI vì không dùng 'understanding for' trong cụm này.",
+            D: "SAI vì giới từ chỉ đối tượng của 'understanding' phải là 'of'."
+          }
+        },
+        {
+          q: "Question 5:", o: { A: "meaning", B: "meaningful", C: "meaningfully", D: "mean" }, a: "B",
+          m: "Chúng tôi hy vọng sự kiện thú vị này sẽ là một trải nghiệm vui vẻ và đầy ý nghĩa cho tất cả mọi người.",
+          c: "an enjoyable and meaningful experience (một trải nghiệm thú vị và đầy ý nghĩa).",
+          e: {
+            A: "SAI vì 'meaning' là danh từ (ý nghĩa), không song hành với tính từ 'enjoyable'.",
+            B: "ĐÚNG vì 'meaningful' là tính từ (đầy ý nghĩa), song hành với tính từ 'enjoyable' bổ nghĩa cho danh từ 'experience'.",
+            C: "SAI vì 'meaningfully' là trạng từ, không bổ nghĩa trực tiếp cho danh từ 'experience'.",
+            D: "SAI vì 'mean' là động từ (có nghĩa là) hoặc tính từ (ích kỷ, keo kiệt), sai nghĩa."
+          }
+        },
+        {
+          q: "Question 6:", o: { A: "who", B: "that", C: "where", D: "whose" }, a: "A",
+          m: "Vui lòng liên hệ với ban tổ chức, những người chịu trách nhiệm cung cấp thêm thông tin, nếu bạn có bất kỳ câu hỏi nào.",
+          c: "organizing committee (ban tổ chức) | be responsible for doing something (chịu trách nhiệm làm việc gì).",
+          e: {
+            A: "ĐÚNG vì 'the organizing committee' (ban tổ chức - gồm những người phụ trách) được thay bằng đại từ quan hệ 'who' sau dấu phẩy.",
+            B: "SAI vì đại từ quan hệ 'that' không được dùng sau dấu phẩy (,).",
+            C: "SAI vì 'where' là trạng từ quan hệ chỉ nơi chốn, không thể làm chủ ngữ cho động từ 'is'.",
+            D: "SAI vì sau 'whose' bắt buộc phải có một danh từ đi kèm."
+          }
+        }
+      ]
+    }
+  },
+
+  // KHỐI II (Câu 7 - 12): LEAFLET
+  part2: {
+    test1: {
+      source: "Practice Test 1 (Q7 - Q12)",
+      skillName: "Phần II: Đọc điền Tờ rơi - Leaflet (6 câu)",
+      instruction: "II. Read the following leaflet and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>The True Cost Of Convenience: Facts That Will Change Your Habits<br><small style="font-size:0.85rem;color:#475569;">🌍 SMALL CHOICES, BIG CONSEQUENCES!</small></h4>
+          <p>➢ When one plastic bottle is thrown away, <strong>(7) __________</strong> will soon replace it in our landfills. Fast fashion companies <strong>(8) __________</strong> millions of unsold clothing items each year.</p>
+          <p>➢ The <strong>(9) __________</strong> caused by single-use items affects our oceans and wildlife. Plastic waste has been accumulating in the oceans for decades, and scientists <strong>(10) __________</strong> its harmful effects on marine life.</p>
+          <p>➢ Many people still use single-use plastic bags every day, <strong>(11) __________</strong> makes it difficult to reduce plastic pollution worldwide. Protecting <strong>(12) __________</strong> environment requires everyone to take action.</p>
+          <p><strong>♻️ MAKE A DIFFERENCE TODAY!</strong><br>Make small changes today for a better tomorrow! Choose reusable bags, bottles, and containers. Together, we can make a difference!</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 7:", o: { A: "other", B: "the others", C: "another", D: "others" }, a: "C",
+          m: "Khi một chai nhựa bị vứt đi, một chai nhựa khác sẽ sớm thay thế nó tại các bãi chôn lấp của chúng ta.",
+          c: "throw away (vứt bỏ) | landfills (bãi chôn lấp rác).",
+          e: {
+            A: "SAI vì 'other' phải có danh từ theo sau, không đứng một mình làm chủ ngữ.",
+            B: "SAI vì 'the others' chỉ những cái còn lại xác định (số nhiều).",
+            C: "ĐÚNG vì 'another' (= another plastic bottle) là đại từ chỉ 'một cái khác' (số ít), đối ứng chuẩn với 'one plastic bottle'.",
+            D: "SAI vì 'others' là đại từ số nhiều (những cái khác), không khớp với 'one plastic bottle... replace it'."
+          }
+        },
+        {
+          q: "Question 8:", o: { A: "look into", B: "put off", C: "come across", D: "throw away" }, a: "D",
+          m: "Các công ty thời trang nhanh vứt bỏ hàng triệu món đồ quần áo không bán được mỗi năm.",
+          c: "throw away (vứt bỏ) | look into (điều tra) | put off (trì hoãn) | come across (tình cờ gặp).",
+          e: {
+            A: "SAI vì 'look into' có nghĩa là điều tra, xem xét.",
+            B: "SAI vì 'put off' có nghĩa là trì hoãn.",
+            C: "SAI vì 'come across' có nghĩa là tình cờ bắt gặp.",
+            D: "ĐÚNG vì cụm động từ 'throw away' mang nghĩa 'vứt bỏ, thải ra', phù hợp ngữ cảnh lãng phí quần áo tồn kho."
+          }
+        },
+        {
+          q: "Question 9:", o: { A: "economy", B: "tradition", C: "pollution", D: "solution" }, a: "C",
+          m: "Sự ô nhiễm do các vật dụng dùng một lần gây ra làm ảnh hưởng đến đại dương và động vật hoang dã của chúng ta.",
+          c: "single-use items (vật dụng dùng một lần) | marine life (sinh vật biển).",
+          e: {
+            A: "SAI vì 'economy' (nền kinh tế) không phù hợp nghĩa câu.",
+            B: "SAI vì 'tradition' (truyền thống) không liên quan đến tác hại của đồ nhựa dùng một lần.",
+            C: "ĐÚNG vì 'pollution' (sự ô nhiễm) do đồ dùng một lần gây ra ảnh hưởng xấu đến đại dương và sinh vật hoang dã.",
+            D: "SAI vì 'solution' (giải pháp) mang nghĩa tích cực, trái với ngữ cảnh gây hại."
+          }
+        },
+        {
+          q: "Question 10:", o: { A: "studied", B: "have studied", C: "were studying", D: "had studied" }, a: "B",
+          m: "Rác thải nhựa đã tích tụ trong đại dương hàng thập kỷ qua, và các nhà khoa học đã và đang nghiên cứu những tác hại của nó đối với sinh vật biển.",
+          c: "harmful effects on something (những tác hại đối với cái gì).",
+          e: {
+            A: "SAI vì quá khứ đơn 'studied' chỉ hành động đã chấm dứt trong quá khứ.",
+            B: "ĐÚNG vì hiện tại hoàn thành 'have studied' diễn tả quá trình nghiên cứu kéo dài đến hiện tại, hòa hợp với 'has been accumulating for decades'.",
+            C: "SAI vì quá khứ tiếp diễn cần thời điểm xác định trong quá khứ.",
+            D: "SAI vì quá khứ hoàn thành chỉ dùng khi xảy ra trước một hành động quá khứ khác."
+          }
+        },
+        {
+          q: "Question 11:", o: { A: "which", B: "what", C: "It", D: "This" }, a: "A",
+          m: "Nhiều người vẫn sử dụng túi nhựa dùng một lần mỗi ngày, điều này khiến việc giảm thiểu ô nhiễm nhựa trên toàn thế giới trở nên khó khăn.",
+          c: "single-use plastic bags (túi nhựa dùng một lần) | reduce plastic pollution (giảm ô nhiễm nhựa).",
+          e: {
+            A: "ĐÚNG vì 'which' đứng sau dấu phẩy là đại từ quan hệ thay thế cho toàn bộ mệnh đề phía trước.",
+            B: "SAI vì 'what' không dùng làm đại từ quan hệ nối tiếp sau dấu phẩy.",
+            C: "SAI vì 'It' không phải đại từ quan hệ, không thể nối 2 mệnh đề qua dấu phẩy mà không có liên từ.",
+            D: "SAI tương tự câu C vì 'This' không thể nối trực tiếp sau dấu phẩy."
+          }
+        },
+        {
+          q: "Question 12:", o: { A: "a", B: "an", C: "the", D: "Ø (no article)" }, a: "C",
+          m: "Việc bảo vệ môi trường đòi hỏi tất cả mọi người phải hành động.",
+          c: "protect the environment (bảo vệ môi trường) | take action (hành động).",
+          e: {
+            A: "SAI vì 'environment' chỉ môi trường tự nhiên chung xác định và bắt đầu bằng nguyên âm.",
+            B: "SAI vì nói đến môi trường sinh thái nói chung ta luôn dùng mạo từ 'the'.",
+            C: "ĐÚNG vì 'the environment' là cụm cố định chỉ môi trường tự nhiên quanh chúng ta.",
+            D: "SAI vì danh từ 'environment' bắt buộc có mạo từ 'the' trong cụm 'protect the environment'."
+          }
+        }
+      ]
+    },
+    test2: {
+      source: "Practice Test 2 (Q7 - Q12)",
+      skillName: "Phần II: Đọc điền Tờ rơi - Leaflet (6 câu)",
+      instruction: "II. Read the following leaflet and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 7 to 12.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>SMALL ACTIONS, A GREENER WORLD!<br><small style="font-size:0.85rem;color:#475569;">Let’s work together to protect our planet and build a sustainable future!</small></h4>
+          <p><strong>Why does green living matter?</strong><br>Last weekend, our school <strong>(7) ______</strong> a project to reduce plastic waste. While students were collecting rubbish around the school, some volunteers were encouraging others to use reusable bags. The project was <strong>(8) ______</strong> success, and it inspired many students to change their daily habits.</p>
+          <p><strong>What can you do?</strong><br>• <strong>Save energy:</strong> Turn off lights and unplug electrical devices when they are not in use.<br>• <strong>Reduce waste:</strong> Use reusable products instead of disposable ones. You can also <strong>(9) ______</strong> information about recycling rules in your local area.<br>• <strong>Protect nature:</strong> Plant trees and take care of green spaces. These small actions can make a real <strong>(10) ______</strong> to the environment.</p>
+          <p>Some students have already changed their habits, while <strong>(11) ______</strong> are still learning how to live sustainably. Every effort counts!<br>Our school is launching a new green campaign, <strong>(12) ______</strong> has encouraged more students to take action.</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 7:", o: { A: "carried out", B: "was carrying out", C: "carries out", D: "has carried out" }, a: "A",
+          m: "Cuối tuần trước, trường chúng tôi đã thực hiện một dự án nhằm giảm thiểu rác thải nhựa.",
+          c: "carry out a project (thực hiện / tiến hành một dự án).",
+          e: {
+            A: "ĐÚNG vì có dấu hiệu quá khứ xác định 'Last weekend' nên động từ chia ở thì Quá khứ đơn 'carried out'.",
+            B: "SAI vì không nhấn mạnh thời điểm cụ thể đang diễn ra để dùng Quá khứ tiếp diễn.",
+            C: "SAI vì 'carries out' là thì Hiện tại đơn, mâu thuẫn với 'Last weekend'.",
+            D: "SAI vì thì Hiện tại hoàn thành không đi kèm mốc thời gian quá khứ 'Last weekend'."
+          }
+        },
+        {
+          q: "Question 8:", o: { A: "an", B: "a", C: "the", D: "Ø (no article)" }, a: "B",
+          m: "Dự án là một sự thành công tốt đẹp, và nó đã truyền cảm hứng cho nhiều học sinh thay đổi thói quen hằng ngày.",
+          c: "be a success (là một sự thành công).",
+          e: {
+            A: "SAI vì 'success' bắt đầu bằng phụ âm /s/, không dùng 'an'.",
+            B: "ĐÚNG vì khi chỉ 'một dự án/sự việc thành công cụ thể', 'success' là danh từ đếm được số ít và đi với mạo từ 'a'.",
+            C: "SAI vì cấu trúc mô tả tính chất là 'The project was a success'.",
+            D: "SAI vì thiếu mạo từ 'a' trong cụm 'was a success'."
+          }
+        },
+        {
+          q: "Question 9:", o: { A: "look up", B: "look after", C: "look into", D: "look down on" }, a: "A",
+          m: "Bạn cũng có thể tra cứu thông tin về các quy định tái chế tại địa phương của mình.",
+          c: "look up information (tra cứu thông tin) | look after (chăm sóc) | look into (điều tra) | look down on (coi thường).",
+          e: {
+            A: "ĐÚNG vì cụm động từ 'look up' có nghĩa là 'tra cứu, tìm kiếm thông tin'.",
+            B: "SAI vì 'look after' có nghĩa là chăm sóc (= take care of).",
+            C: "SAI vì 'look into' có nghĩa là điều tra một vụ việc.",
+            D: "SAI vì 'look down on' có nghĩa là coi thường ai đó."
+          }
+        },
+        {
+          q: "Question 10:", o: { A: "difference", B: "change", C: "effect", D: "result" }, a: "A",
+          m: "Những hành động nhỏ này có thể tạo ra sự khác biệt thực sự cho môi trường.",
+          c: "make a real difference to something (tạo nên sự khác biệt thực sự cho cái gì).",
+          e: {
+            A: "ĐÚNG vì 'make a real difference to something' là cụm collocation cố định mang nghĩa 'tạo ra sự khác biệt thực sự cho cái gì'.",
+            B: "SAI vì đi với giới từ 'to the environment' trong cụm cố định này phải là 'make a real difference to'.",
+            C: "SAI vì với 'effect' phải dùng 'have an effect on'.",
+            D: "SAI vì 'result' không đi trong cụm 'make a real ___ to'."
+          }
+        },
+        {
+          q: "Question 11:", o: { A: "another", B: "other", C: "the other", D: "others" }, a: "D",
+          m: "Một số học sinh đã thay đổi thói quen của mình, trong khi những bạn khác vẫn đang học cách sống bền vững.",
+          c: "Some ... while others ... (Một số ... trong khi những người khác ...).",
+          e: {
+            A: "SAI vì 'another' là số ít, không đi với động từ số nhiều 'are'.",
+            B: "SAI vì 'other' phải có danh từ theo sau (other students), không đứng độc lập một mình.",
+            C: "SAI vì 'the other' chỉ đối tượng còn lại xác định.",
+            D: "ĐÚNG vì 'others' (= other students) là đại từ số nhiều đứng độc lập làm chủ ngữ cho động từ 'are'."
+          }
+        },
+        {
+          q: "Question 12:", o: { A: "that", B: "which", C: "who", D: "where" }, a: "B",
+          m: "Trường chúng tôi đang phát động một chiến dịch xanh mới, chiến dịch mà đã khuyến khích thêm nhiều học sinh hành động.",
+          c: "launch a campaign (phát động chiến dịch) | take action (hành động).",
+          e: {
+            A: "SAI vì không được dùng đại từ quan hệ 'that' sau dấu phẩy (,).",
+            B: "ĐÚNG vì 'which' thay thế cho cụm danh từ chỉ vật 'a new green campaign' sau dấu phẩy.",
+            C: "SAI vì 'who' chỉ dùng cho người.",
+            D: "SAI vì 'where' là trạng từ quan hệ chỉ nơi chốn, không làm chủ ngữ cho 'has encouraged'."
+          }
+        }
+      ]
+    }
+  },
+
+  // KHỐI III (Câu 13 - 17): SENTENCE REORDERING
+  part3: {
+    skillName: "Phần III: Sắp xếp Hội thoại / Thư / Đoạn văn (5 câu)",
+    instruction: "III. Mark the letter A, B, C, or D on your answer sheet to indicate the correct arrangement of the sentence to make a meaningful paragraph/letter in each of the following questions from 13 to 17.",
+    test1: [
+      {
+        source: "Practice Test 1 - Q13",
+        lines: `a. Hoa: It is! There are lanterns designed in various cultural styles and the food stalls offer tastes from all over. It’s a true celebration of diversity.<br>b. Hoa: Have you ever been to the Lantern Festival here in the city? It's quite a multicultural affair.<br>c. Huy: I haven’t, but I’ve heard it combines traditions from around the world. That sounds really unique.`,
+        o: { A: "b-c-a", B: "b-a-c", C: "a-c-b", D: "c-b-a" }, a: "A",
+        m: "(b) Hoa hỏi Huy đã từng đến Lễ hội Đèn lồng đa văn hóa ở thành phố chưa -> (c) Huy đáp chưa đi nhưng nghe nói lễ hội kết hợp truyền thống khắp thế giới -> (a) Hoa khẳng định 'Đúng vậy!' và miêu tả các lồng đèn cùng quầy ẩm thực.",
+        c: "multicultural affair (sự kiện đa văn hóa) | celebration of diversity (sự tôn vinh tính đa dạng).",
+        e: {
+          A: "ĐÚNG: Hoa đặt câu hỏi mở đầu (b) -> Huy trả lời 'I haven't...' (c) -> Hoa tiếp lời 'It is!' (a).",
+          B: "SAI vì hai lượt lời của Hoa (b và a) đứng liền nhau trước khi Huy trả lời.",
+          C: "SAI vì câu khẳng định 'It is!' (a) không thể đứng đầu hội thoại.",
+          D: "SAI vì câu trả lời 'I haven't' (c) đứng trước câu hỏi 'Have you ever been...?' (b)."
+        }
+      },
+      {
+        source: "Practice Test 1 - Q14",
+        lines: `a. Anna: Yes, their sacrifices helped shape the Vietnam we know today. It’s a story of resilience and patriotism.<br>b. Anna: Hi John, I’ve always been inspired by the courage of the Vietnamese soldiers during the war. Their determination was unmatched.<br>c. John: Hey Anna, absolutely. They fought not only for their freedom but also for the future of their country.<br>d. John: Definitely. The Vietnamese soldiers’ bravery and unity continue to inspire generations.`,
+        o: { A: "b-c-a-d", B: "b-d-a-c", C: "b-c-d-a", D: "c-a-b-d" }, a: "A",
+        m: "(b) Anna chào John và bày tỏ sự ngưỡng mộ lòng dũng cảm của người lính Việt Nam -> (c) John chào lại và đồng tình rằng họ chiến đấu vì tự do và tương lai đất nước -> (a) Anna nói tiếp về sự hy sinh, kiên cường và lòng yêu nước -> (d) John kết luận lòng dũng cảm của họ tiếp tục truyền cảm hứng cho nhiều thế hệ.",
+        c: "be inspired by (được truyền cảm hứng bởi) | resilience and patriotism (sự kiên cường và lòng yêu nước).",
+        e: {
+          A: "ĐÚNG: Anna chào (b) -> John chào đáp lại 'Hey Anna' (c) -> Anna phản hồi (a) -> John chốt ý (d).",
+          B: "SAI vì câu (c) có lời chào 'Hey Anna' phải đứng ngay sau câu chào mở đầu (b).",
+          C: "SAI vì hai câu của John (c và d) đứng liền nhau.",
+          D: "SAI vì câu đáp 'Hey Anna, absolutely' (c) không thể đứng trước lời chào khởi đầu của Anna (b)."
+        }
+      },
+      {
+        source: "Practice Test 1 - Q15",
+        lines: `Dear Sarah,<br>a. One simple way to save water is to turn off the tap while brushing our teeth or washing dishes.<br>b. I hope you're doing well!<br>c. I've recently become more interested in protecting the environment, especially saving water, and I'd like to share a few ideas with you.<br>d. I hope we can work together to make a difference by adopting these water-saving habits!<br>e. We can also collect rainwater to water plants instead of using tap water.<br>Best regards, John`,
+        o: { A: "b – d – c – e – a", B: "b – c – a – e – d", C: "b – e – a – c – d", D: "b – e – d – a – c" }, a: "B",
+        m: "(b) Lời hỏi thăm sức khỏe mở đầu thư -> (c) Nêu mục đích viết thư chia sẻ ý tưởng tiết kiệm nước -> (a) Cách đơn giản đầu tiên (tắt vòi nước khi đánh răng/rửa bát) -> (e) Cách bổ sung ('We can also...' hứng nước mưa tưới cây) -> (d) Lời nhắn kết thư cùng nhau áp dụng các thói quen này.",
+        c: "turn off the tap (tắt vòi nước) | make a difference (tạo sự khác biệt) | adopt habits (hình thành thói quen).",
+        e: {
+          A: "SAI vì câu kết thư (d) bị đưa lên ngay sau lời chào (b).",
+          B: "ĐÚNG: Chào hỏi (b) -> Lý do viết thư (c) -> Giải pháp 1 (a) -> Giải pháp 2 có 'also' (e) -> Kết thư (d).",
+          C: "SAI vì câu (e) có từ nối 'also' không thể đứng trước câu giới thiệu chủ đề (c) và ý đầu tiên (a).",
+          D: "SAI vì câu mở đề (c) bị đẩy xuống cuối bức thư."
+        }
+      },
+      {
+        source: "Practice Test 1 - Q16",
+        lines: `a. Taylor Swift is a highly successful musician who has worked tirelessly to achieve her goals, starting her career at a young age.<br>b. Her ability to evolve as an artist and her passion for music continue to inspire millions, proving that hard work and perseverance can lead to greatness.<br>c. She not only transitioned from country to pop music but also gained worldwide recognition for her songwriting and performances.<br>d. She has also used her platform to speak out on important social issues like gender equality and LGBTQ+ rights.<br>e. Throughout her career, Taylor has won numerous awards, including 12 Grammy Awards, which highlight her dedication to excellence.`,
+        o: { A: "e-a-c-b-d", B: "a-c-e-b-d", C: "a-c-e-d-b", D: "d-e-a-c-b" }, a: "C",
+        m: "(a) Giới thiệu Taylor Swift là nữ nhạc sĩ thành công bắt đầu sự nghiệp từ sớm -> (c) Bước chuyển từ nhạc đồng quê sang pop và được công nhận toàn cầu -> (e) Thành tựu 12 giải Grammy -> (d) Đóng góp xã hội bên cạnh âm nhạc ('She has also used her platform...') -> (b) Câu kết tổng kết bài học truyền cảm hứng.",
+        c: "work tirelessly (làm việc không mệt mỏi) | gain worldwide recognition (được công nhận toàn cầu) | speak out on (lên tiếng về).",
+        e: {
+          A: "SAI vì câu (a) mới là câu chủ đề giới thiệu nhân vật Taylor Swift.",
+          B: "SAI vì câu kết luận tổng quát (b) phải đứng cuối đoạn sau khi đã nêu xong hoạt động xã hội ở câu (d).",
+          C: "ĐÚNG: Câu chủ đề (a) -> Phát triển sự nghiệp (c) -> Giải thưởng (e) -> Hoạt động xã hội (d) -> Kết luận (b).",
+          D: "SAI vì mở đầu đoạn bằng đại từ 'She' và từ 'also' ở câu (d)."
+        }
+      },
+      {
+        source: "Practice Test 1 - Q17",
+        lines: `a. Firstly, festivals are a great way to understand a nation's culture<br>b. Nowadays, more and more young people celebrate Western festivals in Viet Nam.<br>c. Taking part in celebrations can help young people learn more about other people's traditions and customs.<br>d. They give an opportunity for young people to relax and spend enjoyable time with their friends and family.<br>e. In conclusion, they can have fun, broaden their cultural knowledge and enjoy their school life more.<br>f. Secondly, festivals are special events that help bring fun, happiness and joy to young people's lives,`,
+        o: { A: "b-a-c-d-f-e", B: "b-a-c-f-d-e", C: "c-a-d-e-a-f", D: "c-e-b-d-f-a" }, a: "B",
+        m: "(b) Câu chủ đề: ngày càng nhiều người trẻ kỷ niệm lễ hội phương Tây ở Việt Nam -> (a) Luận điểm 1 ('Firstly'): hiểu văn hóa một quốc gia -> (c) Giải thích luận điểm 1 (học hỏi truyền thống, phong tục) -> (f) Luận điểm 2 ('Secondly'): mang lại niềm vui -> (d) Giải thích luận điểm 2 (cơ hội thư giãn bên bạn bè, gia đình) -> (e) Kết luận ('In conclusion').",
+        c: "take part in (tham gia vào) | broaden cultural knowledge (mở rộng kiến thức văn hóa).",
+        e: {
+          A: "SAI vì câu (d) giải thích cho việc thư giãn vui vẻ nên phải đứng sau luận điểm 'Secondly' (f).",
+          B: "ĐÚNG: Chủ đề (b) -> 'Firstly' (a) + Giải thích văn hóa (c) -> 'Secondly' (f) + Giải thích niềm vui (d) -> 'In conclusion' (e).",
+          C: "SAI vì mở đầu bằng câu giải thích (c) và đặt 'In conclusion' (e) ở giữa đoạn.",
+          D: "SAI vì câu kết luận 'In conclusion' (e) bị đặt ở vị trí thứ hai."
+        }
+      }
+    ],
+    test2: [
+      {
+        source: "Practice Test 2 - Q13",
+        lines: `a. Jack: Her perseverance and passion for discovery truly inspire me.<br>b. Nick: Yes! Her groundbreaking work in science, despite facing so many challenges, is incredible.<br>c. Jack: Have you ever heard about the life story of Marie Curie?`,
+        o: { A: "a-c-b", B: "b-a-c", C: "c-b-a", D: "c-a-b" }, a: "C",
+        m: "(c) Jack hỏi Nick đã từng nghe về cuộc đời của Marie Curie chưa -> (b) Nick đáp 'Yes!' và ca ngợi công trình khoa học đột phá của bà -> (a) Jack chia sẻ sự kiên trì và đam mê khám phá của bà thực sự truyền cảm hứng cho mình.",
+        c: "groundbreaking work (công trình đột phá) | passion for discovery (niềm đam mê khám phá).",
+        e: {
+          A: "SAI vì câu (a) dùng tính từ sở hữu 'Her' khi chưa giới thiệu tên Marie Curie ở câu (c).",
+          B: "SAI vì câu trả lời 'Yes!' (b) không thể đứng đầu hội thoại.",
+          C: "ĐÚNG: Jack hỏi về Marie Curie (c) -> Nick trả lời 'Yes!' (b) -> Jack nêu cảm nghĩ (a).",
+          D: "SAI vì hai lượt lời của Jack (c và a) đứng liền nhau."
+        }
+      },
+      {
+        source: "Practice Test 2 - Q14",
+        lines: `a. Emma: Yes, it’s terrible. Oil spills destroy entire ecosystems and kill marine animals.<br>b. Tom: Have you heard about the recent oil spill off the coast of California, Emma?<br>c. Emma: I agree, the effects are long-lasting. We need stricter regulations to prevent these spills.<br>d. Tom: Absolutely, more preventive measures are needed to protect our oceans.<br>e. Tom: It's so hard to clean up, too. The damage lasts for years.`,
+        o: { A: "b-a-e-c-d", B: "b-d-e-c-a", C: "a-e-c-d-b", D: "a-b-c-e-d" }, a: "A",
+        m: "(b) Tom hỏi Emma về vụ tràn dầu ngoài khơi California -> (a) Emma đáp 'Yes, it's terrible' và nêu tác hại hủy hoại hệ sinh thái -> (e) Tom nói thêm việc dọn dẹp rất khó và thiệt hại kéo dài nhiều năm -> (c) Emma đồng ý ('I agree, the effects are long-lasting') và đề xuất quy định nghiêm ngặt hơn -> (d) Tom hoàn toàn tán thành.",
+        c: "oil spill (vụ tràn dầu) | stricter regulations (quy định nghiêm ngặt hơn) | preventive measures (biện pháp phòng ngừa).",
+        e: {
+          A: "ĐÚNG: Tom hỏi (b) -> Emma đáp 'Yes' (a) -> Tom nói thiệt hại kéo dài nhiều năm (e) -> Emma nối ý 'effects are long-lasting' (c) -> Tom chốt lại (d).",
+          B: "SAI vì hai lượt lời của Tom (b và d) đứng liền nhau.",
+          C: "SAI vì câu trả lời (a) đứng trước câu hỏi mở đầu (b).",
+          D: "SAI vì câu trả lời (a) bị đặt lên trước câu hỏi (b)."
+        }
+      },
+      {
+        source: "Practice Test 2 - Q15",
+        lines: `Dear Tam,<br>a. While the initial cost of electric cars may be a concern for some, the long-term savings in fuel and maintenance costs could make them a more affordable option in the future.<br>b. I am writing to express my thoughts on the idea of banning gasoline-powered cars in favor of electric vehicles.<br>c. Moreover, this change would encourage the development of cleaner energy sources, which is crucial for combating climate change.<br>d. I believe this transition is an important step towards a more sustainable future for all.<br>e. In my opinion, such a shift would have significant environmental benefits, particularly in reducing air pollution and greenhouse gas emissions.<br>Best regards, Son`,
+        o: { A: "e-d-a-c-b", B: "b-a-d-c-e", C: "d-a-e-c-b", D: "b-e-a-c-d" }, a: "D",
+        m: "(b) Nêu lý do viết thư bày tỏ suy nghĩ về việc cấm xe chạy xăng để chuyển sang xe điện -> (e) Nêu quan điểm chung về lợi ích môi trường lớn -> (a) Phân tích chi phí ban đầu so với khoản tiết kiệm lâu dài -> (c) Bổ sung ('Moreover') khuyến khích phát triển năng lượng sạch -> (d) Kết luận khẳng định bước chuyển này quan trọng cho tương lai bền vững.",
+        c: "in favor of (ủng hộ / thay thế bằng) | combat climate change (chống biến đổi khí hậu).",
+        e: {
+          A: "SAI vì câu mở đầu thư 'I am writing to express...' (b) bị đẩy xuống cuối.",
+          B: "SAI vì câu kết luận (d) đứng ở giữa thư và câu quan điểm chính (e) bị đẩy xuống cuối.",
+          C: "SAI vì câu kết (d) đứng đầu thư.",
+          D: "ĐÚNG: Lý do viết thư (b) -> Lợi ích môi trường chính (e) -> Bài toán chi phí (a) -> Bổ sung 'Moreover' (c) -> Câu kết (d)."
+        }
+      },
+      {
+        source: "Practice Test 2 - Q16",
+        lines: `a. She was intelligent, ambitious, and dedicated to her adopted country, which she sought to improve through various reforms.<br>b. During her reign, there were great developments in architecture, trade, and culture, and these advancements played a key role in shaping Russia’s future.<br>c. She expanded the Russian Empire, adding more than 500,000 square kilometers, and this vast expansion strengthened Russia's influence in Europe.<br>d. She also improved education for children and women, opening the first school for girls in Russia, which was a significant milestone.<br>e. Catherine II was a minor German princess who became known as Catherine the Great, and this marked the beginning of her reign over Russia from 1762 to 1796.`,
+        o: { A: "e-d-a-b-c", B: "d-b-a-c-e", C: "e-a-c-d-b", D: "b-c-e-a-d" }, a: "C",
+        m: "(e) Giới thiệu Catherine II (Catherine Đại đế) trị vì nước Nga từ 1762-1796 -> (a) Phẩm chất thông minh, tham vọng và nỗ lực cải cách -> (c) Mở rộng lãnh thổ Đế quốc Nga thêm hơn 500.000 km2 -> (d) Cải cách giáo dục ('She also improved education...') mở trường học đầu tiên cho nữ sinh -> (b) Tổng kết những phát triển vượt bậc trong triều đại của bà.",
+        c: "be dedicated to (tận tụy với) | play a key role in (đóng vai trò then chốt) | a significant milestone (cột mốc quan trọng).",
+        e: {
+          A: "SAI vì câu (d) có từ 'also' không thể đứng ngay sau câu giới thiệu (e) khi chưa nêu thành tựu đầu tiên.",
+          B: "SAI vì mở đầu bằng đại từ 'She' và 'also' ở câu (d) trước khi giới thiệu tên nhân vật (e).",
+          C: "ĐÚNG: Giới thiệu nhân vật (e) -> Phẩm chất & cải cách (a) -> Mở rộng lãnh thổ (c) -> Giáo dục 'also' (d) -> Tổng kết triều đại (b).",
+          D: "SAI vì mở đầu bằng 'her reign' (b) khi chưa giới thiệu tên Catherine II."
+        }
+      },
+      {
+        source: "Practice Test 2 - Q17",
+        lines: `a. As a result, they can learn more about local traditions, exchange cultural experiences, and create lasting memories.<br>b. Many people enjoy attending traditional festivals because they offer unique cultural experiences.<br>c. In addition, they can meet people from different places and make new friends during the event.<br>d. Therefore, attending festivals in person is often more exciting than watching them online.<br>e. Visitors can enjoy the lively atmosphere, watch traditional performances, and take part in various activities.`,
+        o: { A: "b-d-a-e-c", B: "d-b-a-c-e", C: "e-a-c-d-b", D: "b-e-c-a-d" }, a: "D",
+        m: "(b) Câu chủ đề: nhiều người thích dự lễ hội truyền thống vì trải nghiệm văn hóa độc đáo -> (e) Cụ thể hóa hoạt động của du khách (tận hưởng không khí, xem biểu diễn) -> (c) Bổ sung ('In addition'): gặp gỡ mọi người và kết bạn mới -> (a) Kết quả ('As a result'): học hỏi thêm truyền thống và tạo kỷ niệm -> (d) Kết luận ('Therefore'): tham dự trực tiếp thú vị hơn xem qua mạng.",
+        c: "lively atmosphere (bầu không khí sôi động) | create lasting memories (tạo những kỷ niệm lâu dài).",
+        e: {
+          A: "SAI vì đưa câu kết luận 'Therefore' (d) và 'As a result' (a) lên trước các hoạt động cụ thể (e, c).",
+          B: "SAI vì câu kết luận 'Therefore' (d) không thể đứng đầu đoạn văn.",
+          C: "SAI vì câu chủ đề (b) bị đẩy xuống cuối đoạn.",
+          D: "ĐÚNG: Câu chủ đề (b) -> Hoạt động (e) -> Bổ sung 'In addition' (c) -> Hệ quả 'As a result' (a) -> Kết luận 'Therefore' (d)."
+        }
+      }
+    ]
+  },
+
+  // KHỐI IV (Câu 18 - 22): CLOZE PASSAGE (5 câu / đoạn)
+  part4: {
+    test1: {
+      source: "Practice Test 1 (Q18 - Q22)",
+      skillName: "Phần IV: Đọc điền Khuyết Mệnh đề / Câu (5 câu)",
+      instruction: "IV. Read the following passage about the one I admire the most and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>THE PERSON I ADMIRE THE MOST</h4>
+          <p>The person I admire the most in my life is my grandmother. She has always been a constant source of inspiration, showing me what it means to live a life filled with kindness, compassion, and resilience. <strong>(18) ___________</strong>, she would often tell me stories about her childhood, <strong>(19) ___________</strong> in the face of adversity. Although she no longer works because of her age, her spirit of determination and dedication continues to motivate me every single day. The lessons she imparted, such as the importance of staying humble and helping others, <strong>(20) ____________</strong>, and I try to live by them in my own life. She is someone who <strong>(21) ______________</strong> but never gave up, and that strength is something I admire deeply. I often think about how much she has impacted my life, and I hope one day I can make her proud by living up to the example she set. Despite the challenges she has faced throughout her life, she always found a way to smile, stay positive, and show love to everyone around her. Her ability to maintain such a positive attitude, even in tough times, is something I greatly admire. If I could be even half as wise, loving, and resilient as she is, I would consider myself truly fortunate. My grandmother is a true role model, and I’m incredibly grateful to have her in my life. <strong>(22) _____________</strong>.</p>
+          <p style="text-align:right;"><em>(Adapted from daily news)</em></p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 18:",
+          o: { A: "While being young", B: "When I was young", C: "Having been young", D: "As a young child" }, a: "B",
+          m: "Khi tôi còn nhỏ, bà thường kể cho tôi nghe những câu chuyện về thời thơ ấu của bà...",
+          c: "a constant source of inspiration (nguồn cảm hứng bất tận) | tell somebody stories (kể chuyện cho ai nghe).",
+          e: {
+            A: "SAI vì rút gọn đồng chủ ngữ 'While being young' sẽ hiểu nhầm chủ ngữ là 'she' (khi bà còn nhỏ bà đã kể chuyện cho tôi).",
+            B: "ĐÚNG vì mệnh đề 'When I was young' có chủ ngữ rõ ràng là 'I' (Khi tôi còn nhỏ), tách biệt với chủ ngữ 'she' ở mệnh đề chính.",
+            C: "SAI vì phân từ hoàn thành 'Having been young' sai chủ ngữ rút gọn.",
+            D: "SAI vì cụm 'As a young child' đứng đầu câu sẽ mặc định bổ nghĩa cho chủ ngữ 'she' (người bà), gây sai nghĩa."
+          }
+        },
+        {
+          q: "Question 19:",
+          o: {
+            A: "which taught me the value of hard work and perseverance",
+            B: "when brought lots of opinions about hard work and protection",
+            C: "in which shared young people the value of life and happiness",
+            D: "which controlled the time for helping other people in the community"
+          }, a: "A",
+          m: "...bà thường kể cho tôi nghe những câu chuyện về thời thơ ấu của bà, những câu chuyện đã dạy cho tôi giá trị của sự chăm chỉ và lòng kiên trì trước nghịch cảnh.",
+          c: "in the face of adversity (trước nghịch cảnh) | hard work and perseverance (sự chăm chỉ và lòng kiên trì).",
+          e: {
+            A: "ĐÚNG ngữ pháp và ngữ nghĩa: 'which' thay cho 'stories about her childhood', làm chủ ngữ cho 'taught me the value of hard work and perseverance'.",
+            B: "SAI ngữ pháp vì trạng từ quan hệ 'when' không thể làm chủ ngữ trực tiếp cho động từ 'brought'.",
+            C: "SAI ngữ pháp vì sau 'in which' phải là một mệnh đề có chủ ngữ chứ không thể cộng trực tiếp động từ 'shared'.",
+            D: "SAI ngữ nghĩa vì 'controlled the time for helping...' không hợp với mạch văn bài học vượt qua nghịch cảnh."
+          }
+        },
+        {
+          q: "Question 20:",
+          o: { A: "were taken away from me", B: "have slipped away from me", C: "have been passed down to me", D: "were thrown out by me" }, a: "C",
+          m: "Những bài học mà bà truyền dạy, chẳng hạn như tầm quan trọng của sự khiêm tốn và giúp đỡ người khác, đã được truyền lại cho tôi, và tôi cố gắng sống theo những bài học đó.",
+          c: "pass down to somebody (truyền lại cho thế hệ sau) | live by something (sống theo nguyên tắc/bài học gì).",
+          e: {
+            A: "SAI nghĩa vì 'were taken away from me' là bị tước đoạt khỏi tôi.",
+            B: "SAI nghĩa vì 'have slipped away from me' là đã tuột mất / phai nhạt khỏi tôi.",
+            C: "ĐÚNG vì 'have been passed down to me' (đã được truyền lại cho tôi) khớp hoàn toàn với 'The lessons she imparted'.",
+            D: "SAI nghĩa vì 'were thrown out by me' là đã bị tôi vứt bỏ."
+          }
+        },
+        {
+          q: "Question 21:",
+          o: {
+            A: "faced lots of personal and financial difficulties",
+            B: "has faced many personal and financial difficulties",
+            C: "will face various personal and financial difficulties",
+            D: "faces the methods of personal and financial difficulties"
+          }, a: "A",
+          m: "Bà là một người đã đối mặt với rất nhiều khó khăn cá nhân và tài chính nhưng chưa bao giờ bỏ cuộc...",
+          c: "face difficulties (đối mặt với khó khăn) | give up (bỏ cuộc).",
+          e: {
+            A: "ĐÚNG vì động từ 'faced' chia thì Quá khứ đơn, song hành đồng thì với 'but never gave up' ngay phía sau.",
+            B: "SAI sự hòa hợp thì trong cấu trúc nối bằng 'but': vế sau là quá khứ đơn 'never gave up' nên vế trước dùng 'faced'.",
+            C: "SAI vì tương lai đơn 'will face' mâu thuẫn với quá khứ 'never gave up'.",
+            D: "SAI cả về thì lẫn ngữ nghĩa ('faces the methods of... difficulties')."
+          }
+        },
+        {
+          q: "Question 22:",
+          o: {
+            A: "I will always depend on her for financial support.",
+            B: "She will always be my greatest source of inspiration.",
+            C: "Her life story will always remind me that success is more important than kindness.",
+            D: "She will always push me to become more successful than others."
+          }, a: "B",
+          m: "Bà tôi là một hình mẫu thực sự, và tôi vô cùng biết ơn khi có bà trong đời. Bà sẽ luôn là nguồn cảm hứng lớn nhất của tôi.",
+          c: "a true role model (một tấm gương thực sự) | greatest source of inspiration (nguồn cảm hứng lớn nhất).",
+          e: {
+            A: "SAI vì bài văn ca ngợi phẩm chất tinh thần của bà, không phải phụ thuộc tài chính.",
+            B: "ĐÚNG vì câu kết khẳng định lại chủ đề toàn bài ('She will always be my greatest source of inspiration').",
+            C: "SAI vì bài văn đề cao lòng tốt ('kindness, compassion'), không nói thành công quan trọng hơn lòng tốt.",
+            D: "SAI vì bà dạy sự khiêm tốn ('staying humble'), không thúc ép cháu hơn thua với người khác."
+          }
+        }
+      ]
+    },
+    test2: {
+      source: "Practice Test 2 (Q18 - Q22)",
+      skillName: "Phần IV: Đọc điền Khuyết Mệnh đề / Câu (5 câu)",
+      instruction: "IV. Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the option that best fits each of the numbered blanks from 18 to 22.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>GENERAL VÕ NGUYÊN GIÁP: A LIFE OF DEDICATION</h4>
+          <p>General Võ Nguyên Giáp is remembered as one of Vietnam’s most respected military leaders. Born in Quảng Bình Province in 1911, he worked as a history teacher before devoting himself to the struggle for national independence. His dedication and strategic thinking <strong>(18) ______</strong>.</p>
+          <p>During the First Indochina War, General Giáp played a key role in planning military operations against the French army. <strong>(19) ______</strong>, he decided to change his original plan for the Dien Bien Phu campaign, choosing a more cautious strategy to protect his soldiers. This decision contributed to the historic victory in 1954.</p>
+          <p>His military strategies, <strong>(20) ______</strong>, demonstrated his ability to combine careful planning with a deep understanding of the battlefield. His leadership inspired generations of Vietnamese people to remain determined in the face of difficulties.</p>
+          <p>General Giáp’s influence extended beyond the battlefield. Many young people <strong>(21) ______</strong> because of his courage, dedication, and contributions to national independence. Learning about his life helps students understand the importance of responsibility and perseverance.</p>
+          <p>His story reminds us that true greatness involves not only achieving success but also serving others. <strong>(22) ______</strong>. His legacy continues to inspire generations of Vietnamese people.</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 18:",
+          o: {
+            A: "which helped him become a respected military leader",
+            B: "enabled him to become one of Vietnam’s most respected military leaders",
+            C: "his remarkable military career was shaped by these qualities",
+            D: "it was these qualities that shaped his remarkable military career"
+          }, a: "B",
+          m: "Sự cống hiến và tư duy chiến lược của ông đã giúp ông trở thành một trong những nhà lãnh đạo quân sự được kính trọng nhất của Việt Nam.",
+          c: "devote oneself to (cống hiến bản thân cho) | enable somebody to do something (giúp ai có khả năng làm gì).",
+          e: {
+            A: "SAI ngữ pháp vì câu đã có chủ ngữ 'His dedication and strategic thinking' nhưng chưa có động từ chính; nếu dùng 'which...' câu sẽ thiếu vị ngữ.",
+            B: "ĐÚNG ngữ pháp vì 'enabled him to become...' đóng vai trò là cụm động từ vị ngữ chính cho chủ ngữ 'His dedication and strategic thinking'.",
+            C: "SAI ngữ pháp vì tạo ra 2 mệnh đề/chủ ngữ ghép nối không có liên từ.",
+            D: "SAI vì là mệnh đề chẻ độc lập, bỏ lơ chủ ngữ 'His dedication and strategic thinking' ở đầu câu."
+          }
+        },
+        {
+          q: "Question 19:",
+          o: {
+            A: "After the French army had surrendered",
+            B: "While the final attack was taking place",
+            C: "Before the campaign began in March 1954",
+            D: "As soon as the victory had been celebrated"
+          }, a: "C",
+          m: "Trước khi chiến dịch bắt đầu vào tháng 3 năm 1954, ông đã quyết định thay đổi kế hoạch ban đầu cho chiến dịch Điện Biên Phủ, chọn chiến lược thận trọng hơn để bảo vệ bộ đội.",
+          c: "play a key role in (đóng vai trò then chốt) | contribute to (đóng góp vào).",
+          e: {
+            A: "SAI trình tự thời gian vì không thể đổi kế hoạch chiến dịch sau khi quân Pháp đã đầu hàng.",
+            B: "SAI vì quyết định đổi kế hoạch ban đầu diễn ra trước khi mở màn chiến dịch chứ không phải trong đợt tổng công kích cuối cùng.",
+            C: "ĐÚNG về mặt lịch sử và logic: 'Before the campaign began in March 1954' (Trước khi chiến dịch bắt đầu vào tháng 3/1954).",
+            D: "SAI vì sau khi ăn mừng chiến thắng thì chiến dịch đã kết thúc."
+          }
+        },
+        {
+          q: "Question 20:",
+          o: {
+            A: "who were developed through years of experience",
+            B: "that he carefully planned them before the campaign",
+            C: "whose effectiveness made them important military strategies",
+            D: "which were developed through years of experience"
+          }, a: "D",
+          m: "Các chiến lược quân sự của ông, được đúc kết qua nhiều năm kinh nghiệm, đã chứng minh khả năng kết hợp giữa lập kế hoạch cẩn trọng với sự am hiểu sâu sắc chiến trường.",
+          c: "in the face of difficulties (trước những khó khăn).",
+          e: {
+            A: "SAI vì đại từ quan hệ 'who' chỉ dùng cho người, không dùng cho 'His military strategies'.",
+            B: "SAI vì 'that' không đứng sau dấu phẩy và thừa tân ngữ 'them'.",
+            C: "SAI vì lặp lại cụm 'military strategies' gây lủng củng.",
+            D: "ĐÚNG vì 'which' thay cho 'His military strategies' sau dấu phẩy, đi với động từ bị động 'were developed'."
+          }
+        },
+        {
+          q: "Question 21:",
+          o: {
+            A: "turned him down for his lack of experience",
+            B: "looked down on him as an unsuitable role model",
+            C: "looked up to him as a role model",
+            D: "put him off because of his demanding expectations"
+          }, a: "C",
+          m: "Nhiều người trẻ kính trọng và ngưỡng mộ ông như một hình mẫu lý tưởng bởi lòng dũng cảm, sự cống hiến và đóng góp cho độc lập dân tộc.",
+          c: "look up to somebody as a role model (kính trọng / ngưỡng mộ ai như một tấm gương).",
+          e: {
+            A: "SAI nghĩa vì 'turn somebody down' là từ chối ai.",
+            B: "SAI nghĩa vì 'look down on somebody' là coi thường ai.",
+            C: "ĐÚNG vì cụm động từ 'look up to somebody' có nghĩa là kính trọng, ngưỡng mộ ai đó.",
+            D: "SAI nghĩa vì 'put somebody off' là làm ai nản lòng / mất hứng."
+          }
+        },
+        {
+          q: "Question 22:",
+          o: {
+            A: "Although he devoted his life to the country and its people",
+            B: "His courage and dedication earned him lasting respect",
+            C: "Because his achievements inspired younger generations",
+            D: "While his contributions remain important to Vietnamese history"
+          }, a: "B",
+          m: "Lòng dũng cảm và sự cống hiến của ông đã mang lại cho ông sự kính trọng muôn đời.",
+          c: "earn somebody lasting respect (mang lại cho ai sự kính trọng lâu dài).",
+          e: {
+            A: "SAI ngữ pháp vì đây là mệnh đề phụ thuộc bắt đầu bằng 'Although', đứng riêng lẻ giữa hai dấu chấm sẽ bị lỗi câu cụt.",
+            B: "ĐÚNG vì là một câu đơn hoàn chỉnh có đủ Chủ ngữ ('His courage and dedication') và Vị ngữ ('earned him lasting respect').",
+            C: "SAI ngữ pháp vì là mệnh đề phụ thuộc bắt đầu bằng 'Because', thiếu mệnh đề chính.",
+            D: "SAI ngữ pháp vì là mệnh đề phụ thuộc bắt đầu bằng 'While', thiếu mệnh đề chính."
+          }
+        }
+      ]
+    }
+  },
+
+  // KHỐI V (Câu 23 - 30): READING COMPREHENSION 8 CÂU
+  part5: {
+    test1: {
+      source: "Practice Test 1 (Q23 - Q30)",
+      skillName: "Phần V: Đọc hiểu 8 câu (Câu 23 - 30)",
+      instruction: "V. Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>CULTURAL DIVERSITY</h4>
+          <p>[1] Cultural diversity refers to the presence of multiple cultural groups and their practices within a society. It encompasses various aspects such as language, traditions, beliefs, and values. Embracing cultural diversity can lead to a more inclusive and harmonious society, where individuals <span class="underlined-txt">appreciate</span> and respect differences. This diversity enriches communities by introducing new perspectives, fostering creativity, and promoting mutual understanding.</p>
+          <p>[2] One significant benefit of cultural diversity is the exchange of ideas and knowledge. When people from different cultural backgrounds interact, they share their unique experiences and insights; This exchange can lead to innovative solutions and improvements in various fields such as science, art, and business. Moreover, cultural diversity can <span class="underlined-txt">enhance</span> social cohesion by encouraging people to work together and learn from one another.</p>
+          <p>[3] Education plays a crucial role in promoting cultural diversity. <span class="underlined-txt">Schools and universities can create inclusive environments by incorporating diverse perspectives into their curricula and encouraging students to engage with different cultures.</span> By doing so, educational institutions help students develop a global mindset and prepare them for a multicultural world. Additionally, exposure to diverse cultures at a young age can reduce prejudices and promote tolerance.</p>
+          <p>[4] In the workplace, cultural diversity can boost productivity and creativity. Diverse teams bring together individuals with different skills, viewpoints, and problem-solving approaches. This variety can enhance decision-making processes and lead to more effective and innovative solutions. Companies that prioritize cultural diversity also tend to have a more positive work environment and higher employee satisfaction.</p>
+          <p>[5] Despite <span class="underlined-txt">its</span> benefits, cultural diversity also presents challenges. Misunderstandings and conflicts can arise when people from different cultural backgrounds interact. To address these challenges, it is essential to promote open communication and cultural competence. By fostering an inclusive culture, societies and organizations can maximize the benefits of cultural diversity while minimizing potential conflicts.</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 23: Which of the following is NOT mentioned as an aspect of cultural diversity?",
+          o: { A: "Traditions", B: "Values", C: "Technology", D: "Language" }, a: "C",
+          m: "Điều nào sau đây KHÔNG được đề cập như một khía cạnh của sự đa dạng văn hóa?",
+          c: "encompass various aspects (bao gồm nhiều khía cạnh khác nhau).",
+          e: {
+            A: "SAI vì 'Traditions' được nêu ở đoạn 1 ('language, traditions, beliefs, and values').",
+            B: "SAI vì 'Values' được nêu ở đoạn 1.",
+            C: "ĐÚNG vì đoạn 1 chỉ liệt kê ngôn ngữ, truyền thống, tín ngưỡng và giá trị; không hề đề cập đến 'Technology' (công nghệ).",
+            D: "SAI vì 'Language' được nêu ở đoạn 1."
+          }
+        },
+        {
+          q: "Question 24: The word “its” in paragraph 5 refers to_______",
+          o: { A: "unique experiences", B: "interaction", C: "exchange of ideas and knowledge", D: "cultural diversity" }, a: "D",
+          m: "Từ 'its' ở đoạn 5 đề cập đến _______ ('Mặc dù có những lợi ích của nó, sự đa dạng văn hóa cũng đặt ra những thách thức').",
+          c: "present challenges (đặt ra những thách thức).",
+          e: {
+            A: "SAI vì 'unique experiences' nằm ở đoạn 2.",
+            B: "SAI vì 'interaction' không phải danh từ chính được thay thế ở đầu đoạn 5.",
+            C: "SAI vì cụm này nằm ở đoạn 2.",
+            D: "ĐÚNG vì trong câu 'Despite its benefits, cultural diversity also presents challenges', 'its' quy chiếu cho chủ ngữ 'cultural diversity'."
+          }
+        },
+        {
+          q: "Question 25: The word “appreciate” in paragraph 1 is OPPOSITE in meaning to_______",
+          o: { A: "value", B: "despise", C: "admire", D: "respect" }, a: "B",
+          m: "Từ 'appreciate' (trân trọng, đánh giá cao) ở đoạn 1 TRÁI NGHĨA với từ _______.",
+          c: "appreciate and respect differences (trân trọng và tôn trọng sự khác biệt).",
+          e: {
+            A: "SAI vì 'value' (coi trọng) đồng nghĩa với 'appreciate'.",
+            B: "ĐÚNG vì 'despise' (coi thường, khinh miệt) trái nghĩa hoàn toàn với 'appreciate' (trân trọng).",
+            C: "SAI vì 'admire' (ngưỡng mộ) cùng trường nghĩa tích cực.",
+            D: "SAI vì 'respect' (tôn trọng) gần nghĩa với 'appreciate'."
+          }
+        },
+        {
+          q: "Question 26: The word “enhance” in paragraph 2 could be best replaced by______",
+          o: { A: "simplify", B: "enrich", C: "ignore", D: "worsen" }, a: "B",
+          m: "Từ 'enhance' (nâng cao, làm giàu thêm) ở đoạn 2 có thể được thay thế tốt nhất bằng từ ______.",
+          c: "enhance social cohesion (tăng cường / làm giàu thêm sự gắn kết xã hội).",
+          e: {
+            A: "SAI vì 'simplify' là đơn giản hóa.",
+            B: "ĐÚNG vì 'enrich' (làm phong phú, nâng cao) đồng nghĩa sát nhất với 'enhance'.",
+            C: "SAI vì 'ignore' là phớt lờ.",
+            D: "SAI vì 'worsen' là làm tồi tệ hơn (trái nghĩa)."
+          }
+        },
+        {
+          q: "Question 27: Which of the following is TRUE according to the passage?",
+          o: {
+            A: "Cultural diversity has no impact on creativity.",
+            B: "Cultural diversity can reduce prejudices and promote tolerance.",
+            C: "Cultural diversity is irrelevant in the workplace.",
+            D: "Cultural diversity always leads to misunderstandings."
+          }, a: "B",
+          m: "Điều nào sau đây là ĐÚNG theo đoạn văn?",
+          c: "reduce prejudices and promote tolerance (giảm định kiến và thúc đẩy sự khoan dung).",
+          e: {
+            A: "SAI vì đoạn 1 và 4 nêu rõ đa dạng văn hóa thúc đẩy sự sáng tạo ('fostering creativity').",
+            B: "ĐÚNG theo câu cuối đoạn 3: 'exposure to diverse cultures at a young age can reduce prejudices and promote tolerance'.",
+            C: "SAI vì đoạn 4 khẳng định đa dạng văn hóa giúp tăng năng suất và sáng tạo ở nơi làm việc.",
+            D: "SAI vì đoạn 5 chỉ nói xung đột 'can arise' (có thể nảy sinh) chứ không phải 'always leads to' (luôn luôn dẫn đến)."
+          }
+        },
+        {
+          q: "Question 28: Which of the following best paraphrases the underlined sentence in paragraph 3?",
+          o: {
+            A: "Education should avoid addressing cultural diversity.",
+            B: "Educational institutions should focus solely on local cultures.",
+            C: "Education plays no role in promoting cultural diversity.",
+            D: "Schools and universities should incorporate diverse perspectives."
+          }, a: "D",
+          m: "Câu nào diễn đạt lại đúng nhất câu gạch chân ở đoạn 3? ('Các trường phổ thông và đại học có thể tạo môi trường hòa nhập bằng cách lồng ghép các góc nhìn đa dạng vào chương trình học...')",
+          c: "incorporate diverse perspectives into curricula (lồng ghép các góc nhìn đa dạng vào chương trình học).",
+          e: {
+            A: "SAI vì trái ngược hoàn toàn với câu gốc.",
+            B: "SAI vì câu gốc khuyến khích tiếp cận các nền văn hóa khác nhau chứ không chỉ tập trung duy nhất ('solely') vào văn hóa địa phương.",
+            C: "SAI vì đoạn 3 khẳng định 'Education plays a crucial role'.",
+            D: "ĐÚNG vì tóm tắt chuẩn xác ý chính của câu gạch chân: trường học và đại học nên lồng ghép các góc nhìn đa dạng."
+          }
+        },
+        {
+          q: "Question 29: In which paragraph does the writer discuss the challenges of cultural diversity?",
+          o: { A: "Paragraph 5", B: "Paragraph 2", C: "Paragraph 1", D: "Paragraph 3" }, a: "A",
+          m: "Tác giả thảo luận về những thách thức của sự đa dạng văn hóa ở đoạn văn nào?",
+          c: "minimize potential conflicts (giảm thiểu các xung đột tiềm ẩn).",
+          e: {
+            A: "ĐÚNG vì đoạn 5 mở đầu bằng 'Despite its benefits, cultural diversity also presents challenges.'",
+            B: "SAI vì đoạn 2 nói về lợi ích trao đổi ý tưởng và kiến thức.",
+            C: "SAI vì đoạn 1 định nghĩa sự đa dạng văn hóa.",
+            D: "SAI vì đoạn 3 nói về vai trò của giáo dục."
+          }
+        },
+        {
+          q: "Question 30: In which paragraph does the writer mention the role of cultural diversity in the workplace?",
+          o: { A: "Paragraph 3", B: "Paragraph 1", C: "Paragraph 4", D: "Paragraph 2" }, a: "C",
+          m: "Tác giả đề cập đến vai trò của sự đa dạng văn hóa tại nơi làm việc ở đoạn văn nào?",
+          c: "boost productivity and creativity (tăng năng suất và sự sáng tạo).",
+          e: {
+            A: "SAI vì đoạn 3 nói về giáo dục.",
+            B: "SAI vì đoạn 1 giới thiệu chung.",
+            C: "ĐÚNG vì đoạn 4 bắt đầu bằng 'In the workplace, cultural diversity can boost productivity and creativity.'",
+            D: "SAI vì đoạn 2 nói về trao đổi tri thức nói chung."
+          }
+        }
+      ]
+    },
+    test2: {
+      source: "Practice Test 2 (Q23 - Q30)",
+      skillName: "Phần V: Đọc hiểu 8 câu (Câu 23 - 30)",
+      instruction: "V. Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the best answer to each of the following questions from 23 to 30.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>Urban Gardening: A Growing Trend in Cities</h4>
+          <p>[1] In recent years, more people living in cities have started growing plants in their homes, on rooftops, or in small community spaces. This movement, known as urban gardening, is becoming popular as city dwellers look for ways to reconnect with nature despite <span class="underlined-txt">limited</span> space. According to environmental experts, urban gardening not only helps improve air quality but also reduces the negative effects of city heat.</p>
+          <p>[2] Beyond environmental benefits, urban gardening also promotes mental health. Studies suggest that spending time caring for plants can lower stress levels and increase happiness. Many urban gardeners say they feel more relaxed after watering or pruning their plants. Moreover, growing one’s own herbs or vegetables gives a sense of independence and responsibility.</p>
+          <p>[3] Urban gardening is also a way to strengthen community bonds. In many cities, residents share garden spaces where <span class="underlined-txt">they</span> plant, harvest, and exchange ideas about sustainable living. These shared gardens often become places where people from different backgrounds meet and support one another, turning empty lots into vibrant social hubs.</p>
+          <p>[4] However, maintaining urban gardens can be challenging. Limited sunlight, water access, and pollution are major <span class="underlined-txt">obstacles</span>. Fortunately, innovative solutions are being developed. <span class="underlined-txt">For instance, hydroponic systems—where plants grow in nutrient-rich water instead of soil—allow people to garden indoors efficiently.</span> With such technologies, urban gardening may become a key part of creating greener, healthier cities in the future.</p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 23: Which of the following is NOT mentioned as a benefit of urban gardening?",
+          o: { A: "Improving air quality", B: "Encouraging social interaction", C: "Saving household expenses", D: "Reducing city heat" }, a: "C",
+          m: "Điều nào sau đây KHÔNG được đề cập như một lợi ích của làm vườn đô thị?",
+          c: "city dwellers (cư dân thành phố) | reconnect with nature (kết nối lại với thiên nhiên).",
+          e: {
+            A: "SAI vì cải thiện chất lượng không khí được nêu ở đoạn 1 ('helps improve air quality').",
+            B: "SAI vì khuyến khích tương tác xã hội được nêu ở đoạn 3 ('strengthen community bonds... vibrant social hubs').",
+            C: "ĐÚNG vì cả bài không hề đề cập đến việc tiết kiệm chi tiêu gia đình ('Saving household expenses').",
+            D: "SAI vì giảm nhiệt độ đô thị được nêu ở đoạn 1 ('reduces the negative effects of city heat')."
+          }
+        },
+        {
+          q: "Question 24: The word “limited” in paragraph 1 is OPPOSITE in meaning to _____.",
+          o: { A: "small", B: "narrow", C: "abundant", D: "insufficient" }, a: "C",
+          m: "Từ 'limited' (hạn chế, ít ỏi) ở đoạn 1 TRÁI NGHĨA với từ _____.",
+          c: "limited space (không gian hạn chế) >< abundant (dồi dào, phong phú, rộng rãi).",
+          e: {
+            A: "SAI vì 'small' (nhỏ) gần nghĩa với 'limited'.",
+            B: "SAI vì 'narrow' (chật hẹp) gần nghĩa với 'limited'.",
+            C: "ĐÚNG vì 'abundant' (dồi dào, thừa thãi) trái nghĩa với 'limited' (bị giới hạn, hạn hẹp).",
+            D: "SAI vì 'insufficient' (thiếu, không đủ) gần nghĩa với 'limited'."
+          }
+        },
+        {
+          q: "Question 25: The word “they” in paragraph 3 refers to _____.",
+          o: { A: "residents", B: "gardens", C: "backgrounds", D: "ideas" }, a: "A",
+          m: "Từ 'they' ở đoạn 3 đề cập đến _____ ('Tại nhiều thành phố, cư dân chia sẻ không gian làm vườn nơi họ trồng trọt, thu hoạch...').",
+          c: "strengthen community bonds (thắt chặt sự gắn kết cộng đồng).",
+          e: {
+            A: "ĐÚNG vì 'they' làm chủ ngữ cho hành động 'plant, harvest, and exchange ideas', thay thế cho 'residents' (những cư dân).",
+            B: "SAI vì những khu vườn ('gardens') không thể tự trồng trọt và trao đổi ý tưởng.",
+            C: "SAI vì 'backgrounds' xuất hiện ở câu sau.",
+            D: "SAI vì 'ideas' nằm ở phía sau động từ 'exchange'."
+          }
+        },
+        {
+          q: "Question 26: The word “obstacles” in paragraph 4 could be best replaced by _____.",
+          o: { A: "advantages", B: "difficulties", C: "discoveries", D: "achievements" }, a: "B",
+          m: "Từ 'obstacles' (những rào cản, trở ngại) ở đoạn 4 có thể được thay thế tốt nhất bằng từ _____.",
+          c: "major obstacles = major difficulties (những trở ngại / khó khăn lớn).",
+          e: {
+            A: "SAI vì 'advantages' là những thuận lợi (trái nghĩa).",
+            B: "ĐÚNG vì 'difficulties' (những khó khăn) đồng nghĩa với 'obstacles' (trở ngại).",
+            C: "SAI vì 'discoveries' là những khám phá.",
+            D: "SAI vì 'achievements' là những thành tựu."
+          }
+        },
+        {
+          q: "Question 27: Which of the following best paraphrases the underlined sentence in paragraph 4?",
+          o: {
+            A: "Hydroponic systems make indoor gardening possible and productive.",
+            B: "Indoor gardens are less effective than hydroponic systems.",
+            C: "People can only garden indoors by using hydroponic systems.",
+            D: "Hydroponic systems are the only way to grow plants in cities."
+          }, a: "A",
+          m: "Câu nào diễn đạt lại đúng nhất câu gạch chân ở đoạn 4? ('Ví dụ, hệ thống thủy canh — nơi cây phát triển trong nước giàu dinh dưỡng thay vì đất — cho phép con người làm vườn trong nhà một cách hiệu quả.')",
+          c: "hydroponic systems (hệ thống thủy canh) | nutrient-rich water (nước giàu dinh dưỡng).",
+          e: {
+            A: "ĐÚNG vì 'allow people to garden indoors efficiently' tương đương với 'make indoor gardening possible and productive'.",
+            B: "SAI vì câu gốc không so sánh cái nào kém hiệu quả hơn cái nào.",
+            C: "SAI vì từ tuyệt đối hóa 'only' (chỉ có thể) làm sai lệch câu gốc ('For instance' chỉ nêu 1 ví dụ).",
+            D: "SAI vì không phải là cách duy nhất ('the only way') để trồng cây ở thành phố."
+          }
+        },
+        {
+          q: "Question 28: Which of the following is TRUE according to the passage?",
+          o: {
+            A: "Urban gardening can help people reduce stress.",
+            B: "City gardeners often avoid sharing their garden spaces.",
+            C: "Urban gardening is more popular in rural areas.",
+            D: "There are no technological solutions for urban gardening yet."
+          }, a: "A",
+          m: "Điều nào sau đây là ĐÚNG theo đoạn văn?",
+          c: "lower stress levels (giảm mức độ căng thẳng).",
+          e: {
+            A: "ĐÚNG theo đoạn 2: 'spending time caring for plants can lower stress levels and increase happiness'.",
+            B: "SAI vì đoạn 3 nói cư dân chia sẻ không gian vườn ('residents share garden spaces').",
+            C: "SAI vì làm vườn đô thị ('urban gardening') là xu hướng ở các thành phố ('living in cities').",
+            D: "SAI vì đoạn 4 nêu đã có các giải pháp sáng tạo như hệ thống thủy canh ('innovative solutions are being developed')."
+          }
+        },
+        {
+          q: "Question 29: In which paragraph does the writer explain how spending time caring for plants affects people's mental health?",
+          o: { A: "Paragraph 1", B: "Paragraph 2", C: "Paragraph 3", D: "Paragraph 4" }, a: "B",
+          m: "Tác giả giải thích việc dành thời gian chăm sóc cây cối ảnh hưởng thế nào đến sức khỏe tinh thần ở đoạn nào?",
+          c: "promote mental health (thúc đẩy sức khỏe tinh thần).",
+          e: {
+            A: "SAI vì đoạn 1 nói về lợi ích môi trường và giảm nhiệt đô thị.",
+            B: "ĐÚNG vì đoạn 2 mở đầu bằng 'Beyond environmental benefits, urban gardening also promotes mental health.'",
+            C: "SAI vì đoạn 3 nói về sự gắn kết cộng đồng.",
+            D: "SAI vì đoạn 4 nói về khó khăn và giải pháp công nghệ thủy canh."
+          }
+        },
+        {
+          q: "Question 30: In which paragraph does the writer explore modern methods for maintaining urban gardens?",
+          o: { A: "Paragraph 1", B: "Paragraph 2", C: "Paragraph 3", D: "Paragraph 4" }, a: "D",
+          m: "Tác giả khám phá các phương pháp hiện đại để duy trì khu vườn đô thị ở đoạn văn nào?",
+          c: "innovative solutions (các giải pháp sáng tạo/đổi mới).",
+          e: {
+            A: "SAI vì đoạn 1 giới thiệu phong trào làm vườn đô thị.",
+            B: "SAI vì đoạn 2 nói về lợi ích tinh thần.",
+            C: "SAI vì đoạn 3 nói về gắn kết cộng đồng.",
+            D: "ĐÚNG vì đoạn 4 đề cập đến 'innovative solutions... hydroponic systems... With such technologies'."
+          }
+        }
+      ]
+    }
+  },
+
+  // KHỐI VI (Câu 31 - 40): READING COMPREHENSION 10 CÂU
+  part6: {
+    test1: {
+      source: "Practice Test 1 (Q31 - Q40)",
+      skillName: "Phần VI: Đọc hiểu 10 câu (Câu 31 - 40)",
+      instruction: "VI. Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>Green Living</h4>
+          <p><strong>[I]</strong> Green living, often referred to as sustainable living, encourages individuals to adopt environmentally friendly practices in their daily lives. <strong>[II]</strong> This lifestyle includes reducing waste, conserving natural resources, and promoting eco-friendly habits, which collectively help to minimize the negative impact on the environment (Davies & Mulligan, 2017). <strong>[III]</strong> Although green living requires effort and adjustment, its benefits for the planet and future generations are substantial. <strong>[IV]</strong></p>
+          <p>One of the fundamental aspects of green living is waste reduction. This can be achieved through practices like recycling, composting, and reducing single-use plastics. According to a report by the Environmental Protection Agency (EPA), recycling and composting can significantly decrease the amount of waste sent to landfills, which helps reduce greenhouse gas emissions and pollution (EPA, 2021). Additionally, adopting reusable items such as water bottles and shopping bags minimizes reliance on plastic, which is crucial for protecting ecosystems and wildlife.</p>
+          <p>Another key component of green living is energy conservation. Simple changes, like switching to LED light bulbs and using public transportation, can reduce an individual's <span class="underlined-txt">carbon footprint</span>. A study by the International Energy Agency (IEA) shows that energy efficiency improvements, if widely implemented, could decrease global energy demand by up to 40% by 2050 (IEA, 2019). By conserving energy, individuals not only lower <span class="underlined-txt">their</span> utility bills but also contribute to the reduction of carbon emissions, which is essential for <span class="underlined-txt">mitigating</span> climate change.</p>
+          <p>Green living also involves making conscious choices about the products we consume. This includes opting for sustainably sourced goods, supporting local businesses, and choosing organic produce. Sustainable agriculture practices reduce the need for chemical pesticides and fertilizers, which can harm both the soil and water sources (Smith & Taylor, 2020). <span class="underlined-txt">By making informed purchases, consumers can support eco-friendly industries and help create a demand for greener alternatives.</span></p>
+          <p style="text-align:right;"><em>[Adapted from The Impact Of Green Living by Davies & Mulligan]</em></p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 31: Where in paragraph 1 does the following sentence best fit?<br><em>“Green living practices are gaining popularity as people become more aware of environmental issues.”</em>",
+          o: { A: "[I]", B: "[II]", C: "[III]", D: "[IV]" }, a: "C",
+          m: "Câu 'Các hoạt động sống xanh đang ngày càng phổ biến khi con người nhận thức rõ hơn về các vấn đề môi trường' phù hợp nhất ở vị trí nào trong đoạn 1?",
+          c: "gain popularity (ngày càng phổ biến) | become aware of (nhận thức về).",
+          e: {
+            A: "SAI vì câu 1 định nghĩa 'Green living' là gì nên nên đứng mở đầu đoạn.",
+            B: "SAI vì câu 2 bắt đầu bằng 'This lifestyle includes...' nối trực tiếp với định nghĩa 'Green living' ở câu 1.",
+            C: "ĐÚNG vì sau khi định nghĩa (câu 1) và liệt kê các hoạt động của lối sống này (câu 2), vị trí [III] nêu xu hướng ngày càng phổ biến của nó trước khi chuyển sang câu 'Although green living requires effort...'.",
+            D: "SAI vì đặt ở cuối đoạn [IV] sẽ làm đứt mạch kết luận về lợi ích cho hành tinh và thế hệ tương lai."
+          }
+        },
+        {
+          q: "Question 32: The phrase \"carbon footprint\" in paragraph 3 could be best replaced by ________.",
+          o: { A: "environmental awareness", B: "carbon emissions", C: "personal waste", D: "air quality" }, a: "B",
+          m: "Cụm từ 'carbon footprint' (dấu chân carbon / lượng khí thải carbon) ở đoạn 3 có thể được thay thế tốt nhất bằng ________.",
+          c: "reduce an individual's carbon footprint = reduce carbon emissions (giảm lượng khí thải carbon).",
+          e: {
+            A: "SAI vì 'environmental awareness' là nhận thức về môi trường.",
+            B: "ĐÚNG vì 'carbon footprint' chỉ tổng lượng khí thải nhà kính/carbon do con người tạo ra, đồng nghĩa với 'carbon emissions'.",
+            C: "SAI vì 'personal waste' là rác thải sinh hoạt cá nhân.",
+            D: "SAI vì 'air quality' là chất lượng không khí."
+          }
+        },
+        {
+          q: "Question 33: The word \"their\" in paragraph 3 refers to ________.",
+          o: { A: "individuals", B: "LED light bulbs", C: "utility bills", D: "carbon emissions" }, a: "A",
+          m: "Từ 'their' ở đoạn 3 đề cập đến ________ ('Bằng cách tiết kiệm năng lượng, các cá nhân không chỉ giảm hóa đơn tiền điện nước của họ...').",
+          c: "lower utility bills (giảm hóa đơn tiện ích điện/nước).",
+          e: {
+            A: "ĐÚNG vì chủ ngữ của mệnh đề là 'individuals' (các cá nhân giảm hóa đơn tiền điện nước của chính họ - 'their utility bills').",
+            B: "SAI vì bóng đèn LED không có hóa đơn tiện ích.",
+            C: "SAI vì 'utility bills' là danh từ đứng ngay sau 'their'.",
+            D: "SAI vì 'carbon emissions' xuất hiện ở vế sau."
+          }
+        },
+        {
+          q: "Question 34: According to paragraph 2, which of the following is NOT a way to reduce waste?",
+          o: { A: "Using compost bins", B: "Recycling plastic", C: "Adopting single-use items", D: "Using reusable shopping bags" }, a: "C",
+          m: "Theo đoạn 2, điều nào sau đây KHÔNG phải là một cách để giảm rác thải?",
+          c: "minimize reliance on plastic (giảm thiểu sự phụ thuộc vào nhựa).",
+          e: {
+            A: "SAI vì ủ phân hữu cơ ('composting') là cách giảm rác được nêu ở đoạn 2.",
+            B: "SAI vì tái chế ('recycling') được nêu ở đoạn 2.",
+            C: "ĐÚNG vì đoạn 2 khuyên GIẢM nhựa dùng một lần ('reducing single-use plastics') và dùng đồ tái sử dụng ('adopting reusable items'), chứ không phải sử dụng đồ dùng một lần ('Adopting single-use items').",
+            D: "SAI vì sử dụng túi mua sắm tái sử dụng ('reusable shopping bags') là cách giảm rác nêu ở đoạn 2."
+          }
+        },
+        {
+          q: "Question 35: Which of the following best summarizes paragraph 3?",
+          o: {
+            A: "Energy conservation is crucial for green living, reducing carbon emissions, air pollution, and improving energy efficiency.",
+            B: "Energy conservation is vital for green living, helping to reduce carbon emissions and mitigate climate change.",
+            C: "Energy conservation is essential for green living, helping to reduce emissions and energy consumption.",
+            D: "Energy conservation helps reduce carbon emissions and mitigate climate change, but it also involves recycling and using renewable resources."
+          }, a: "B",
+          m: "Câu nào sau đây tóm tắt đúng nhất đoạn 3?",
+          c: "energy conservation (bảo tồn / tiết kiệm năng lượng) | mitigate climate change (giảm nhẹ biến đổi khí hậu).",
+          e: {
+            A: "SAI vì đoạn 3 không tập trung bàn về 'air pollution'.",
+            B: "ĐÚNG vì bao quát trọn vẹn câu chủ đề ('key component of green living is energy conservation') và câu kết đoạn 3 ('contribute to the reduction of carbon emissions, which is essential for mitigating climate change').",
+            C: "SAI vì thiếu mục đích cốt lõi ở cuối đoạn là giảm nhẹ biến đổi khí hậu ('mitigate climate change').",
+            D: "SAI vì 'recycling' thuộc đoạn 2 chứ không phải nội dung đoạn 3."
+          }
+        },
+        {
+          q: "Question 36: The word \"mitigating\" in paragraph 3 is OPPOSITE in meaning to ________.",
+          o: { A: "worsening", B: "reducing", C: "increasing", D: "ignoring" }, a: "A",
+          m: "Từ 'mitigating' (làm dịu đi, giảm nhẹ) ở đoạn 3 TRÁI NGHĨA với từ ________.",
+          c: "mitigate climate change (làm giảm nhẹ biến đổi khí hậu) >< worsen (làm trầm trọng thêm).",
+          e: {
+            A: "ĐÚNG vì 'worsening' (làm tồi tệ hơn, làm trầm trọng thêm) trái nghĩa trực tiếp với 'mitigating' (làm giảm nhẹ mức độ nghiêm trọng).",
+            B: "SAI vì 'reducing' (làm giảm) đồng nghĩa với 'mitigating'.",
+            C: "SAI vì đối với một vấn đề tiêu cực như biến đổi khí hậu, từ trái nghĩa chuẩn của 'mitigate' (làm dịu nhẹ) là 'worsen/aggravate' (làm trầm trọng thêm).",
+            D: "SAI vì 'ignoring' là phớt lờ."
+          }
+        },
+        {
+          q: "Question 37: Which of the following is TRUE according to the passage?",
+          o: {
+            A: "Single-use plastics are preferred for green living practices.",
+            B: "Supporting local businesses can be a part of sustainable consumption.",
+            C: "Recycling increases the amount of waste in landfills.",
+            D: "Green living does not impact the carbon footprint."
+          }, a: "B",
+          m: "Điều nào sau đây là ĐÚNG theo đoạn văn?",
+          c: "sustainable consumption (tiêu dùng bền vững) | support local businesses (ủng hộ doanh nghiệp địa phương).",
+          e: {
+            A: "SAI vì lối sống xanh hạn chế đồ nhựa dùng một lần ('reducing single-use plastics').",
+            B: "ĐÚNG theo đoạn 4: 'making conscious choices about the products we consume. This includes opting for sustainably sourced goods, supporting local businesses...'",
+            C: "SAI vì đoạn 2 nêu tái chế làm GIẢM ('significantly decrease') lượng rác đưa ra bãi chôn lấp.",
+            D: "SAI vì đoạn 3 nêu sống xanh giúp giảm dấu chân carbon ('reduce an individual's carbon footprint')."
+          }
+        },
+        {
+          q: "Question 38: Which of the following best paraphrases the underlined sentence in paragraph 4?",
+          o: {
+            A: "When consumers buy products thoughtfully, they can encourage industries to adopt environmentally friendly practices and increase the need for more sustainable options.",
+            B: "Consumers can make eco-friendly choices by buying products that support industries focused on reducing waste and pollution.",
+            C: "By supporting eco-friendly industries, consumers help to increase the production of greener alternatives.",
+            D: "When consumers choose sustainably sourced goods, they can help the environment by reducing the need for chemical pesticides and fertilizers."
+          }, a: "A",
+          m: "Câu nào diễn đạt lại đúng nhất câu gạch chân ở đoạn 4? ('Bằng cách mua hàng có hiểu biết, người tiêu dùng có thể ủng hộ các ngành công nghiệp thân thiện môi trường và giúp tạo ra nhu cầu cho các lựa chọn thay thế xanh hơn.')",
+          c: "make informed purchases (mua sắm có hiểu biết/cân nhắc) | greener alternatives (các lựa chọn thay thế xanh hơn).",
+          e: {
+            A: "ĐÚNG vì 'buy products thoughtfully' = 'making informed purchases', 'encourage industries to adopt environmentally friendly practices' = 'support eco-friendly industries', và 'increase the need for more sustainable options' = 'create a demand for greener alternatives'.",
+            B: "SAI vì thiếu vế tạo ra nhu cầu cho các sản phẩm thay thế xanh hơn.",
+            C: "SAI vì bỏ sót ý nguyên nhân 'By making informed purchases' (mua sắm có hiểu biết).",
+            D: "SAI vì đây là nội dung của câu phía trước về nông nghiệp bền vững."
+          }
+        },
+        {
+          q: "Question 39: Which of the following can be inferred from the passage?",
+          o: {
+            A: "Green living practices are only effective if implemented on a global scale.",
+            B: "Recycling and composting are the most important aspects of green living.",
+            C: "Individuals can have a positive impact on the environment by making small lifestyle changes.",
+            D: "Green living is primarily focused on reducing the use of plastic products."
+          }, a: "C",
+          m: "Điều nào sau đây có thể được suy ra từ đoạn văn?",
+          c: "have a positive impact on the environment (có tác động tích cực đến môi trường).",
+          e: {
+            A: "SAI vì bài viết nhấn mạnh từng cá nhân ('individuals') đều góp phần tạo tác động lớn chứ không phải chỉ hiệu quả khi làm toàn cầu.",
+            B: "SAI vì tái chế và ủ phân chỉ là một trong các khía cạnh cơ bản ('One of the fundamental aspects'), không nói là quan trọng nhất.",
+            C: "ĐÚNG vì xuyên suốt bài viết (thay bóng đèn LED, mang túi/bình tái sử dụng, mua hàng có ý thức), những thay đổi nhỏ của cá nhân đều đóng góp tích cực cho môi trường.",
+            D: "SAI vì sống xanh còn bao gồm tiết kiệm năng lượng và tiêu dùng bền vững chứ không chỉ giảm nhựa."
+          }
+        },
+        {
+          q: "Question 40: Which of the following best summarizes the passage?",
+          o: {
+            A: "Green living promotes reducing waste, conserving energy, and supporting local businesses to create a more sustainable environment.",
+            B: "Green living focuses on reducing energy consumption and using reusable items, with little regard for the products we consume.",
+            C: "Sustainable living encourages individuals to minimize waste, conserve energy, and avoid all forms of plastic.",
+            D: "Green living requires significant lifestyle changes, including the reduction of waste, the use of sustainable products, and the support of eco-friendly industries."
+          }, a: "A",
+          m: "Câu nào sau đây tóm tắt đúng nhất toàn bộ bài đọc?",
+          c: "create a more sustainable environment (tạo ra một môi trường bền vững hơn).",
+          e: {
+            A: "ĐÚNG vì tổng hợp đầy đủ 3 trụ cột chính của 3 đoạn thân bài: giảm rác thải (đoạn 2), tiết kiệm năng lượng (đoạn 3), và tiêu dùng bền vững/ủng hộ doanh nghiệp địa phương (đoạn 4).",
+            B: "SAI vì nói 'with little regard for the products we consume' (ít quan tâm đến sản phẩm tiêu dùng) là trái ngược với đoạn 4.",
+            C: "SAI vì bài chỉ nói giảm nhựa dùng một lần chứ không cực đoan bắt tránh mọi loại nhựa ('avoid all forms of plastic').",
+            D: "SAI vì đoạn 3 nói chỉ cần những thay đổi đơn giản ('Simple changes') chứ không bắt buộc thay đổi lối sống quá lớn ('significant lifestyle changes') mới làm được."
+          }
+        }
+      ]
+    },
+    test2: {
+      source: "Practice Test 2 (Q31 - Q40)",
+      skillName: "Phần VI: Đọc hiểu 10 câu (Câu 31 - 40)",
+      instruction: "VI. Read the following passage and mark the letter A, B, C, or D on your answer sheet to indicate the best answer to each of the following questions from 31 to 40.",
+      passageHtml: `
+        <div class="passage-box">
+          <h4>RENEWABLE ENERGY SOURCES</h4>
+          <p>Even though natural energy sources are considered the future solution, we have <span class="underlined-txt">harnessed</span> them for a long time. For example, windmills were used to grind grain. However, human beings are increasingly becoming <span class="underlined-txt">reliant</span> on using fossil fuels such as coal and oil, which has caused a lot of environmental problems. As a result, scientists are attempting to preserve the environment by using renewable sources such as solar, wind and many other types.</p>
+          <p>For billions of years, the sun has produced energy. The amount of sunlight striking the earth's surface in an hour can <span class="underlined-txt">meet the planet's power needs</span> in a full year. Sunlight is harnessed to generate two forms of energy: electricity and heat by using solar panels or solar absorbers, which can be installed on residents' rooftops or open areas.</p>
+          <p><strong>[I]</strong> Wind power can also be used to generate electricity through wind turbines. The size of a wind turbine depends on the energy demand. <strong>[II]</strong> For example, the amount of electricity that is required inside a high-rise building can be provided by small turbines with a capacity of under 50 kilowatts. On the other hand, large corporations that produce energy for sale need to install huge wind turbines at the power plant scale, with a capacity from 1.5 to 7.5 megawatts.</p>
+          <p><strong>[III]</strong> As a natural power to generate electricity, hydroelectric power utilises a dam or diversion structure in the process of harnessing the energy of a flowing river or other body of water. <strong>[IV]</strong> However, dam construction can negatively affect the ecology of a river and nearby agricultural activities. In fact, it might have a huge impact on the local environment. <span class="underlined-txt">Therefore, it is vital to research various regions thoroughly to minimise the potential negative effects.</span></p>
+        </div>`,
+      questions: [
+        {
+          q: "Question 31: Where in this passage does the following sentence best fit?<br><em>\"Another type of renewable energy is hydroelectric power.\"</em>",
+          o: { A: "[I]", B: "[II]", C: "[III]", D: "[IV]" }, a: "C",
+          m: "Câu 'Một loại năng lượng tái tạo khác là thủy điện' phù hợp nhất ở vị trí nào trong bài?",
+          c: "renewable energy (năng lượng tái tạo) | hydroelectric power (năng lượng thủy điện).",
+          e: {
+            A: "SAI vì đoạn 3 đang giới thiệu về năng lượng gió ('Wind power').",
+            B: "SAI vì [II] đang nêu ví dụ về kích thước tua-bin gió.",
+            C: "ĐÚNG vì vị trí [III] đứng mở đầu đoạn 4 để chuyển sang chủ đề thủy điện ('hydroelectric power'), ngay trước câu giải thích cách thủy điện hoạt động.",
+            D: "SAI vì ở [IV] thủy điện đã được giới thiệu xong ở câu trước đó rồi."
+          }
+        },
+        {
+          q: "Question 32: The word “reliant” in paragraph 1 is CLOSEST in meaning to:",
+          o: { A: "progressive", B: "independent", C: "dependent", D: "doubtful" }, a: "C",
+          m: "Từ 'reliant' (phụ thuộc, dựa dẫm vào) ở đoạn 1 ĐỒNG NGHĨA với từ:",
+          c: "become reliant on = become dependent on (trở nên phụ thuộc vào).",
+          e: {
+            A: "SAI vì 'progressive' là tiến bộ.",
+            B: "SAI vì 'independent' là độc lập (trái nghĩa).",
+            C: "ĐÚNG vì 'dependent' (phụ thuộc) đồng nghĩa hoàn toàn với 'reliant'.",
+            D: "SAI vì 'doubtful' là nghi ngờ."
+          }
+        },
+        {
+          q: "Question 33: The phrase \"meet the planet's power needs\" in paragraph 2 refers to:",
+          o: {
+            A: "Satisfying the energy demands of the Earth",
+            B: "Finding the planet's energy needs",
+            C: "Determining the future energy sources",
+            D: "Understanding how to produce energy for the Earth"
+          }, a: "A",
+          m: "Cụm từ 'meet the planet's power needs' (đáp ứng nhu cầu năng lượng của hành tinh) đề cập đến:",
+          c: "meet the needs / satisfy the demands (đáp ứng nhu cầu).",
+          e: {
+            A: "ĐÚNG vì 'meet' = 'satisfy' (đáp ứng, thỏa mãn), 'the planet's power needs' = 'the energy demands of the Earth'.",
+            B: "SAI vì 'finding' là tìm kiếm chứ không phải đáp ứng.",
+            C: "SAI vì 'determining' là xác định nguồn năng lượng.",
+            D: "SAI vì 'understanding' là tìm hiểu cách sản xuất."
+          }
+        },
+        {
+          q: "Question 34: The phrase \"harnessed\" in paragraph 1 is CLOSEST in meaning to:",
+          o: { A: "ignore", B: "generate", C: "wasted", D: "collected" }, a: "D",
+          m: "Từ 'harnessed' (khai thác, thu thập và sử dụng nguồn năng lượng tự nhiên) ở đoạn 1 GẦN NGHĨA NHẤT với từ:",
+          c: "harness natural energy sources (khai thác / thu năng lượng tự nhiên).",
+          e: {
+            A: "SAI vì 'ignore' là phớt lờ.",
+            B: "SAI vì năng lượng tự nhiên đã có sẵn, con người thu/khai thác ('collect/capture') nó để tạo ra ('generate') điện.",
+            C: "SAI vì 'wasted' là lãng phí.",
+            D: "ĐÚNG theo đáp án đề cương: 'harnessed' gần nghĩa nhất với 'collected' (thu gom, khai thác nguồn năng lượng tự nhiên để sử dụng)."
+          }
+        },
+        {
+          q: "Question 35: What is the main idea of paragraph 3?",
+          o: {
+            A: "The size of wind turbines varies depending on the type of energy required by industries.",
+            B: "Wind turbines come in different sizes depending on the electricity needs of different areas.",
+            C: "Small turbines are only suitable for personal use, while large turbines are needed for corporate energy production.",
+            D: "Wind energy from turbine systems depends on the energy demand of the user."
+          }, a: "B",
+          m: "Ý chính của đoạn 3 là gì?",
+          c: "energy demand (nhu cầu năng lượng) | at the power plant scale (ở quy mô nhà máy điện).",
+          e: {
+            A: "SAI vì kích thước tua-bin phụ thuộc vào lượng điện cần dùng chứ không phải 'loại năng lượng' (type of energy).",
+            B: "ĐÚNG theo đáp án gốc của đề cương (B): Tua-bin gió có nhiều kích cỡ khác nhau tùy thuộc vào nhu cầu điện năng của các khu vực/quy mô khác nhau (tòa nhà cao tầng dùng tua-bin nhỏ, nhà máy lớn dùng tua-bin khổng lồ).",
+            C: "SAI vì tua-bin nhỏ trong bài dùng cho cả tòa nhà cao tầng ('high-rise building') chứ không phải chỉ dùng cá nhân ('only suitable for personal use').",
+            D: "SAI vì đoạn 3 nhấn mạnh sự khác biệt về kích thước của tua-bin gió ('The size of a wind turbine depends on the energy demand')."
+          }
+        },
+        {
+          q: "Question 36: Which of the following is NOT true according to the text?",
+          o: {
+            A: "Wind turbines differ in size depending on specific demand.",
+            B: "Small wind turbines can produce sufficient energy for a high-rise building.",
+            C: "Hydroelectric power can have harmful effects on local ecological systems.",
+            D: "Humans have used fossil fuels and failed to solve environmental issues for years."
+          }, a: "D",
+          m: "Điều nào sau đây KHÔNG ĐÚNG theo bài đọc?",
+          c: "preserve the environment (bảo tồn môi trường).",
+          e: {
+            A: "SAI (vì đúng với đoạn 3: kích thước tua-bin phụ thuộc nhu cầu cụ thể).",
+            B: "SAI (vì đúng với đoạn 3: tua-bin nhỏ dưới 50kW đủ cấp điện cho một tòa nhà cao tầng).",
+            C: "SAI (vì đúng với đoạn 4: xây đập thủy điện có thể ảnh hưởng tiêu cực đến hệ sinh thái sông).",
+            D: "ĐÚNG là câu KHÔNG ĐÚNG với bài đọc: đoạn 1 chỉ nói việc phụ thuộc nhiên liệu hóa thạch gây ra nhiều vấn đề môi trường và các nhà khoa học đang nỗ lực giải quyết bằng năng lượng tái tạo, không hề nói con người đã thất bại trong việc giải quyết suốt nhiều năm."
+          }
+        },
+        {
+          q: "Question 37: According to the passages, which of the following types of renewable energy is NOT mentioned in the passages?",
+          o: { A: "Solar power", B: "Wind power", C: "Geothermal power", D: "Hydroelectric power" }, a: "C",
+          m: "Theo bài đọc, loại năng lượng tái tạo nào sau đây KHÔNG được đề cập?",
+          c: "solar power (điện mặt trời) | wind power (điện gió) | hydroelectric power (thủy điện) | geothermal power (địa nhiệt).",
+          e: {
+            A: "SAI vì năng lượng mặt trời được nói rõ ở đoạn 2.",
+            B: "SAI vì năng lượng gió được nói rõ ở đoạn 3.",
+            C: "ĐÚNG vì năng lượng địa nhiệt ('Geothermal power') hoàn toàn không được nhắc tới trong bài.",
+            D: "SAI vì thủy điện được nói rõ ở đoạn 4."
+          }
+        },
+        {
+          q: "Question 38: Which of the following best paraphrases the underlined sentence in paragraph 4?",
+          o: {
+            A: "Comprehensive research on regional effects is not necessary to avoid environmental damage.",
+            B: "Studying many different areas is necessary to prevent positive impacts on the environment.",
+            C: "Understanding the environmental effects of dam construction requires little effort.",
+            D: "It is essential to carefully study different areas to reduce the possible harmful impacts."
+          }, a: "D",
+          m: "Câu nào diễn đạt lại đúng nhất câu gạch chân ở đoạn 4? ('Do đó, điều sống còn là phải nghiên cứu kỹ lưỡng các khu vực khác nhau để giảm thiểu những tác động tiêu cực tiềm ẩn.')",
+          c: "minimise the potential negative effects = reduce the possible harmful impacts (giảm thiểu các tác hại tiềm ẩn).",
+          e: {
+            A: "SAI vì nói 'not necessary' (không cần thiết) là trái ngược với 'vital' (sống còn/rất quan trọng).",
+            B: "SAI vì nói ngăn chặn tác động tích cực ('prevent positive impacts') là sai nghĩa.",
+            C: "SAI vì nói 'requires little effort' (đòi hỏi ít nỗ lực) trái với 'research thoroughly' (nghiên cứu kỹ lưỡng).",
+            D: "ĐÚNG vì 'essential' = 'vital', 'carefully study different areas' = 'research various regions thoroughly', 'reduce the possible harmful impacts' = 'minimise the potential negative effects'."
+          }
+        },
+        {
+          q: "Question 39: Which of the following could be inferred from the text?",
+          o: {
+            A: "Solar energy is the eco-friendliest energy source.",
+            B: "The size of a dam can decide how much energy is produced per hour.",
+            C: "Historically, people started harnessing solar power thousands of years ago.",
+            D: "With proper technology, humans can produce electricity and heat from the sun."
+          }, a: "D",
+          m: "Điều nào sau đây có thể được suy ra từ bài đọc?",
+          c: "solar panels or solar absorbers (tấm pin mặt trời hoặc bộ hấp thụ nhiệt mặt trời).",
+          e: {
+            A: "SAI vì bài không so sánh nguồn nào thân thiện với môi trường nhất ('eco-friendliest').",
+            B: "SAI vì bài chỉ nói kích thước tua-bin gió phụ thuộc nhu cầu điện, không nói kích thước con đập quyết định lượng điện mỗi giờ.",
+            C: "SAI vì đoạn 1 lấy ví dụ cối xay gió ('windmills') thời xưa chứ không nói con người khai thác điện mặt trời từ hàng ngàn năm trước.",
+            D: "ĐÚNG vì đoạn 2 nêu rõ: ánh sáng mặt trời được khai thác để tạo ra điện và nhiệt bằng cách sử dụng công nghệ tấm pin mặt trời hoặc bộ thu nhiệt mặt trời ('by using solar panels or solar absorbers')."
+          }
+        },
+        {
+          q: "Question 40: Which of the following best summarizes the passage?",
+          o: {
+            A: "Renewable energy sources such as solar, wind, and hydroelectric power are crucial to meeting future energy demands while minimizing environmental damage.",
+            B: "The potential of renewable energy sources like wind and solar is being heavily debated, with concerns about their efficiency, cost, and the scalability of implementation to meet the global energy needs effectively.",
+            C: "Solar, wind, and hydroelectric power are environmentally friendly alternatives but still require significant infrastructure and investments, making their widespread use slow and costly in many parts of the world.",
+            D: "Fossil fuels remain the primary energy source for the world, and although renewable energy sources are growing, they still play a minor role in global energy production compared to traditional sources like coal and oil."
+          }, a: "A",
+          m: "Câu nào sau đây tóm tắt đúng nhất toàn bộ bài đọc?",
+          c: "meet future energy demands (đáp ứng nhu cầu năng lượng tương lai).",
+          e: {
+            A: "ĐÚNG vì bao quát trọn vẹn nội dung cả 4 đoạn: vai trò của các nguồn năng lượng tái tạo (mặt trời, gió, thủy điện) trong việc đáp ứng nhu cầu năng lượng và giảm thiểu tổn hại môi trường.",
+            B: "SAI vì bài viết không bàn về các cuộc tranh cãi gay gắt ('heavily debated') hay chi phí ('cost').",
+            C: "SAI vì bài không nói việc phổ biến năng lượng tái tạo bị chậm và đắt đỏ ('slow and costly').",
+            D: "SAI vì trọng tâm bài viết là giới thiệu 3 nguồn năng lượng tái tạo chứ không phải khẳng định chúng chỉ đóng vai trò nhỏ ('minor role')."
+          }
+        }
+      ]
+    }
+  }
+};
+
+// ============================================================================
+// BIẾN TRẠNG THÁI & QUẢN LÝ PHIÊN THI
+// ============================================================================
+let currentStudent = { name: "", sbd: "", className: "", mode: "mix", examCode: "" };
+let activeExamSections = [];
+let flatQuestions = [];
+let userSelections = {};
+let timerInterval = null;
+let secondsElapsed = 0;
+let isSubmitted = false;
+
+function normalizeName(str) {
+  return str.trim().replace(/\s+/g, " ").split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+}
+
+function startExamSession() {
+  const rawName = document.getElementById("stuName").value;
+  const rawSBD = document.getElementById("stuSBD").value.trim().toUpperCase();
+  const rawClass = document.getElementById("stuClass").value.trim().toUpperCase() || "12A12";
+  const mode = document.getElementById("examMode").value;
+  const errEl = document.getElementById("loginError");
+
+  if (!rawName || rawName.trim().split(/\s+/).length < 2) {
+    errEl.style.display = "block";
+    errEl.textContent = "⚠️ Vui lòng nhập đầy đủ Họ và Tên học sinh (ít nhất 2 từ, ví dụ: Phan Nguyễn Đức Hoàn)!";
+    return;
+  }
+  if (!rawSBD || rawSBD.length < 3) {
+    errEl.style.display = "block";
+    errEl.textContent = "⚠️ Vui lòng nhập đúng Số Báo Danh (SBD tối thiểu 3 ký tự, ví dụ: 12A12-01 hoặc SBD01)!";
+    return;
+  }
+  errEl.style.display = "none";
+
+  currentStudent.name = normalizeName(rawName);
+  currentStudent.sbd = rawSBD;
+  currentStudent.className = rawClass;
+  currentStudent.mode = mode;
+
+  document.getElementById("loginSection").style.display = "none";
+  document.getElementById("stickyBar").style.display = "block";
+  document.getElementById("examContentSection").style.display = "block";
+
+  document.getElementById("barName").textContent = "👤 " + currentStudent.name;
+  document.getElementById("barSBD").textContent = "🆔 SBD: " + currentStudent.sbd;
+  document.getElementById("barClass").textContent = "🏫 Lớp: " + currentStudent.className;
+
+  generateNewExam(mode);
+}
+
+// THUẬT TOÁN ĐÁNH TRÁO GIỮA 2 BÀI TEST (GIỮ NGUYÊN CÂU HỎI TRONG MỖI ĐOẠN VĂN)
+function generateNewExam(mode) {
+  isSubmitted = false;
+  userSelections = {};
+  secondsElapsed = 0;
+  document.getElementById("scoreboardSection").style.display = "none";
+  document.getElementById("bottomSubmitWrap").style.display = "block";
+  document.getElementById("topSubmitBtn").style.display = "inline-block";
+
+  let p1Pick, p2Pick, p3List, p4Pick, p5Pick, p6Pick;
+
+  if (mode === "test1") {
+    currentStudent.examCode = "TEST 1 NGUYÊN BẢN (40 Câu)";
+    p1Pick = BANK.part1.test1;
+    p2Pick = BANK.part2.test1;
+    p3List = [...BANK.part3.test1];
+    p4Pick = BANK.part4.test1;
+    p5Pick = BANK.part5.test1;
+    p6Pick = BANK.part6.test1;
+  } else if (mode === "test2") {
+    currentStudent.examCode = "TEST 2 NGUYÊN BẢN (40 Câu)";
+    p1Pick = BANK.part1.test2;
+    p2Pick = BANK.part2.test2;
+    p3List = [...BANK.part3.test2];
+    p4Pick = BANK.part4.test2;
+    p5Pick = BANK.part5.test2;
+    p6Pick = BANK.part6.test2;
+  } else {
+    // Chế độ Đánh Tráo giữa Test 1 và Test 2:
+    // Đảm bảo có cả đoạn văn từ Test 1 và Test 2, không cắt bớt bất kỳ câu nào trong đoạn văn
+    const codeNum = Math.floor(100 + Math.random() * 900);
+    currentStudent.examCode = "ĐỀ TRỘN #" + codeNum + " (Test 1 ⇄ Test 2)";
+    const coin1 = Math.random() < 0.5;
+    p1Pick = coin1 ? BANK.part1.test1 : BANK.part1.test2;
+    p2Pick = !coin1 ? BANK.part2.test1 : BANK.part2.test2; // Đảo chéo với Phần 1
+
+    // Phần 3 (Câu 13-17): Lấy 5 câu sắp xếp đánh tráo từ ngân hàng 10 câu của Test 1 & Test 2
+    const allP3 = [...BANK.part3.test1, ...BANK.part3.test2];
+    for (let i = allP3.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allP3[i], allP3[j]] = [allP3[j], allP3[i]];
+    }
+    p3List = allP3.slice(0, 5);
+
+    const coin2 = Math.random() < 0.5;
+    p4Pick = coin2 ? BANK.part4.test1 : BANK.part4.test2;
+    p5Pick = !coin2 ? BANK.part5.test1 : BANK.part5.test2;
+    p6Pick = Math.random() < 0.5 ? BANK.part6.test1 : BANK.part6.test2;
+  }
+
+  activeExamSections = [
+    { skillName: p1Pick.skillName, instruction: p1Pick.instruction, source: p1Pick.source, passageHtml: p1Pick.passageHtml, items: p1Pick.questions },
+    { skillName: p2Pick.skillName, instruction: p2Pick.instruction, source: p2Pick.source, passageHtml: p2Pick.passageHtml, items: p2Pick.questions },
+    {
+      skillName: BANK.part3.skillName,
+      instruction: BANK.part3.instruction,
+      source: mode === "mix" ? "Trộn Test 1 & Test 2 (Q13 - Q17)" : (mode === "test1" ? "Practice Test 1 (Q13 - Q17)" : "Practice Test 2 (Q13 - Q17)"),
+      passageHtml: "",
+      items: p3List.map((it, idx) => ({
+        q: `Question ${13 + idx}:`,
+        lines: it.lines,
+        o: it.o, a: it.a, m: it.m, c: it.c, e: it.e, itemSource: it.source
+      }))
+    },
+    { skillName: p4Pick.skillName, instruction: p4Pick.instruction, source: p4Pick.source, passageHtml: p4Pick.passageHtml, items: p4Pick.questions },
+    { skillName: p5Pick.skillName, instruction: p5Pick.instruction, source: p5Pick.source, passageHtml: p5Pick.passageHtml, items: p5Pick.questions },
+    { skillName: p6Pick.skillName, instruction: p6Pick.instruction, source: p6Pick.source, passageHtml: p6Pick.passageHtml, items: p6Pick.questions }
+  ];
+
+  renderExamDOM();
+  startTimer();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function renderExamDOM() {
+  const container = document.getElementById("examBlocksContainer");
+  container.innerHTML = "";
+  flatQuestions = [];
+  let globalIndex = 1;
+
+  activeExamSections.forEach((sec, secIdx) => {
+    const secDiv = document.createElement("div");
+    secDiv.className = "section-block";
+
+    secDiv.innerHTML = `
+      <div class="section-header">
+        <span>${sec.instruction}</span>
+        <span class="source-tag">${sec.source}</span>
+      </div>
+      ${sec.passageHtml || ""}
+      <div id="secQuestions_${secIdx}"></div>
+    `;
+    container.appendChild(secDiv);
+
+    const qHolder = secDiv.querySelector(`#secQuestions_${secIdx}`);
+    sec.items.forEach((item) => {
+      const qNum = globalIndex++;
+      const qObj = { ...item, qNum, secIdx, skillName: sec.skillName };
+      flatQuestions.push(qObj);
+
+      const qCard = document.createElement("div");
+      qCard.className = "question-card";
+      qCard.id = `qCard_${qNum}`;
+
+      // Đảm bảo số câu hiển thị chuẩn từ Question 1 -> Question 40
+      const cleanStem = item.q.replace(/^Question\s+\d+[:.]?\s*/i, "");
+      const stemTitle = cleanStem ? `Question ${qNum}: ${cleanStem}` : `Question ${qNum}:`;
+
+      let optionsHtml = "";
+      ["A", "B", "C", "D"].forEach(letter => {
+        optionsHtml += `
+          <label class="opt-label" id="optLabel_${qNum}_${letter}">
+            <input type="radio" name="q_${qNum}" value="${letter}" onchange="selectOption(${qNum}, '${letter}')">
+            <span><strong>${letter}.</strong> ${item.o[letter]}</span>
+          </label>
+        `;
+      });
+
+      let expOptsHtml = "";
+      ["A", "B", "C", "D"].forEach(letter => {
+        const isRight = letter === item.a;
+        expOptsHtml += `
+          <li class="exp-opt-item ${isRight ? 'is-right' : 'is-wrong'}">
+            <strong>${isRight ? '✅' : '❌'} Đáp án ${letter} (${item.o[letter]}):</strong> ${item.e[letter]}
+          </li>
+        `;
+      });
+
+      qCard.innerHTML = `
+        <div class="q-stem">
+          <div>${stemTitle} ${item.itemSource ? `<span style="font-size:0.78rem;color:#64748b;font-weight:500;">(${item.itemSource})</span>` : ""}</div>
+          ${item.lines ? `<div class="lines-box">${item.lines}</div>` : ""}
+        </div>
+        <div class="options-grid">${optionsHtml}</div>
+        <div class="exp-box" id="expBox_${qNum}">
+          <div class="exp-header">
+            <span id="expStatus_${qNum}">Kết quả: ---</span>
+            <span style="color:var(--success);">Đáp án chuẩn: <strong>${item.a}. ${item.o[item.a]}</strong></span>
+          </div>
+          <div class="exp-meaning"><strong>📖 Dịch nghĩa & Ngữ cảnh:</strong> ${item.m}</div>
+          <div class="exp-colloc"><strong>🔑 Cụm Collocations / Phrasal Verbs / Ngữ pháp:</strong> ${item.c}</div>
+          <ul class="exp-opts-list">${expOptsHtml}</ul>
+        </div>
+      `;
+      qHolder.appendChild(qCard);
+    });
+  });
+
+  updateProgressPill();
+}
+
+function selectOption(qNum, letter) {
+  if (isSubmitted) return;
+  userSelections[qNum] = letter;
+  const card = document.getElementById(`qCard_${qNum}`);
+  if (card) card.classList.add("answered");
+  updateProgressPill();
+}
+
+function updateProgressPill() {
+  const count = Object.keys(userSelections).length;
+  document.getElementById("barProgress").textContent = `📝 Đã làm: ${count}/${flatQuestions.length}`;
+}
+
+function startTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  secondsElapsed = 0;
+  const disp = document.getElementById("timerDisplay");
+  disp.textContent = "00:00";
+  timerInterval = setInterval(() => {
+    secondsElapsed++;
+    const m = String(Math.floor(secondsElapsed / 60)).padStart(2, "0");
+    const s = String(secondsElapsed % 60).padStart(2, "0");
+    disp.textContent = `${m}:${s}`;
+  }, 1000);
+}
+
+// CHẤM ĐIỂM & HIỂN THỊ BẢNG ĐIỂM KHÁC BIỆT + LỜI GIẢI CHI TIẾT
+function submitExam() {
+  if (isSubmitted) return;
+  const answeredCount = Object.keys(userSelections).length;
+  if (answeredCount < flatQuestions.length) {
+    const confirmSub = confirm(`Bạn mới làm ${answeredCount}/${flatQuestions.length} câu. Bạn có chắc chắn muốn nộp bài ngay không?`);
+    if (!confirmSub) return;
+  }
+
+  isSubmitted = true;
+  clearInterval(timerInterval);
+  document.getElementById("bottomSubmitWrap").style.display = "none";
+  document.getElementById("topSubmitBtn").style.display = "none";
+
+  let correctCount = 0;
+  let wrongCount = 0;
+  let skippedCount = 0;
+  const skillStats = {};
+
+  flatQuestions.forEach(qObj => {
+    const qNum = qObj.qNum;
+    const userAns = userSelections[qNum];
+    const rightAns = qObj.a;
+
+    if (!skillStats[qObj.skillName]) {
+      skillStats[qObj.skillName] = { total: 0, correct: 0 };
+    }
+    skillStats[qObj.skillName].total++;
+
+    const card = document.getElementById(`qCard_${qNum}`);
+    const expBox = document.getElementById(`expBox_${qNum}`);
+    const expStatus = document.getElementById(`expStatus_${qNum}`);
+
+    // Khóa các radio input
+    const inputs = card.querySelectorAll("input[type=radio]");
+    inputs.forEach(inp => inp.disabled = true);
+
+    // Tô màu đáp án đúng
+    const rightLabel = document.getElementById(`optLabel_${qNum}_${rightAns}`);
+    if (rightLabel) rightLabel.classList.add("opt-correct-ans");
+
+    if (!userAns) {
+      skippedCount++;
+      card.classList.add("res-wrong");
+      expStatus.innerHTML = `<span style="color:var(--warning);">⚠️ CHƯA CHỌN ĐÁP ÁN</span>`;
+    } else if (userAns === rightAns) {
+      correctCount++;
+      skillStats[qObj.skillName].correct++;
+      card.classList.add("res-correct");
+      expStatus.innerHTML = `<span style="color:var(--success);">✅ CHÍNH XÁC (Bạn chọn ${userAns})</span>`;
+    } else {
+      wrongCount++;
+      card.classList.add("res-wrong");
+      const wrongLabel = document.getElementById(`optLabel_${qNum}_${userAns}`);
+      if (wrongLabel) wrongLabel.classList.add("opt-user-wrong");
+      expStatus.innerHTML = `<span style="color:var(--danger);">❌ SAI (Bạn chọn ${userAns} — Đáp án đúng là ${rightAns})</span>`;
+    }
+
+    expBox.style.display = "block";
+  });
+
+  const totalQ = flatQuestions.length;
+  const score10 = ((correctCount / totalQ) * 10).toFixed(2);
+  const percent = Math.round((correctCount / totalQ) * 100);
+  const timeStr = document.getElementById("timerDisplay").textContent;
+
+  let rankText = "Cần cố gắng thêm 💪";
+  if (score10 >= 9.0) rankText = "🏆 XUẤT SẮC - THỦ KHOA";
+  else if (score10 >= 8.0) rankText = "🌟 GIỎI - NẮM VỮNG KIẾN THỨC";
+  else if (score10 >= 6.5) rankText = "👍 KHÁ - ĐẠT YÊU CẦU";
+  else if (score10 >= 5.0) rankText = "📘 TRUNG BÌNH";
+
+  // Đổ dữ liệu vào Bảng Điểm Khác Biệt
+  document.getElementById("resName").textContent = "👤 Học sinh: " + currentStudent.name;
+  document.getElementById("resSBD").innerHTML = `<strong>Số báo danh:</strong> ${currentStudent.sbd}`;
+  document.getElementById("resClass").innerHTML = `<strong>Lớp:</strong> ${currentStudent.className}`;
+  document.getElementById("resMode").innerHTML = `<strong>Mã đề:</strong> ${currentStudent.examCode}`;
+  document.getElementById("resTime").innerHTML = `<strong>Thời gian làm bài:</strong> ${timeStr}`;
+  document.getElementById("resScore10").textContent = score10;
+  document.getElementById("resRankBadge").textContent = rankText;
+  document.getElementById("resCorrect").textContent = `${correctCount}/${totalQ}`;
+  document.getElementById("resWrong").textContent = wrongCount;
+  document.getElementById("resSkipped").textContent = skippedCount;
+  document.getElementById("resPercent").textContent = `${percent}%`;
+
+  // Phân tích theo 6 kỹ năng
+  const skillBox = document.getElementById("skillBreakdownBox");
+  skillBox.innerHTML = "";
+  Object.keys(skillStats).forEach(sName => {
+    const st = skillStats[sName];
+    const pct = Math.round((st.correct / st.total) * 100);
+    skillBox.innerHTML += `
+      <div class="skill-row">
+        <div class="skill-row-head">
+          <span>${sName}</span>
+          <span>${st.correct}/${st.total} câu (${pct}%)</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width:${pct}%"></div>
+        </div>
+      </div>
+    `;
+  });
+
+  // Ma trận 40 câu
+  const matrixBox = document.getElementById("questionMatrixBox");
+  matrixBox.innerHTML = "";
+  flatQuestions.forEach(qObj => {
+    const qNum = qObj.qNum;
+    const uAns = userSelections[qNum];
+    let cls = "skipped";
+    if (uAns === qObj.a) cls = "correct";
+    else if (uAns) cls = "wrong";
+
+    const cell = document.createElement("div");
+    cell.className = `q-cell ${cls}`;
+    cell.textContent = `${qNum}${uAns ? ':' + uAns : ''}`;
+    cell.title = `Câu ${qNum}: Bạn chọn ${uAns || 'Trống'} | Đáp án: ${qObj.a}`;
+    cell.onclick = () => {
+      document.getElementById(`qCard_${qNum}`).scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+    matrixBox.appendChild(cell);
+  });
+
+  // Lưu lịch sử theo SBD
+  saveAttemptHistory({
+    sbd: currentStudent.sbd,
+    name: currentStudent.name,
+    className: currentStudent.className,
+    score: score10,
+    correct: `${correctCount}/${totalQ}`,
+    time: timeStr
+  });
+
+  document.getElementById("scoreboardSection").style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function saveAttemptHistory(record) {
+  let list = [];
+  try {
+    list = JSON.parse(localStorage.getItem("nbk_eng12_gk1_history") || "[]");
+  } catch (e) { list = []; }
+  list.unshift(record);
+  if (list.length > 8) list = list.slice(0, 8);
+  try {
+    localStorage.setItem("nbk_eng12_gk1_history", JSON.stringify(list));
+  } catch (e) {}
+
+  const tbody = document.getElementById("historyTableBody");
+  tbody.innerHTML = "";
+  list.forEach(r => {
+    tbody.innerHTML += `
+      <tr>
+        <td><strong>${r.sbd}</strong></td>
+        <td>${r.name}</td>
+        <td>${r.className}</td>
+        <td><strong style="color:var(--primary-light);">${r.score}</strong></td>
+        <td>${r.correct}</td>
+        <td>${r.time}</td>
+      </tr>
+    `;
+  });
+}
+</script>
+</body>
+</html>
